@@ -1,0 +1,67 @@
+#creative_container {
+    font-family: monospace;
+    font-size: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+
+#creative_span {
+    font-size: 28px;
+    font-weight: bolder;
+    font-family: monospace;
+    overflow: hidden;
+    color: #fff;
+}
+
+#cursor {
+    font-size: 28px;
+    color: purple;
+    font-weight: bold;
+    width: 0.5ch;
+    border-left: 4px solid purple;
+}  
+
+@keyframes flashing {
+    0% {
+      border-color: purple;
+    }
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: purple;
+    }
+}
+
+.description {
+    margin-top: 30px;
+}
+
+.purpose, .what_is, .why_they_needed {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    border-left: 6px solid #3498db;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+}
+
+.why_they_needed {
+    margin-bottom: 0;
+}
+
+.purpose:hover, .what_is:hover, .why_they_needed:hover {
+    transform: scale(1.05);
+    border-left: 6px solid #8e44ad;
+}
+
+.purpose_h3, .what_is_h3, .why_they_needed_h3 {
+    color: #fff;
+    font-size: 22px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.purpose_p, .what_is_p, .why_they_need_p {
+    text-align: justify;
+    line-height: 1.6;
+}

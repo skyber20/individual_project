@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/main_page.css' %}">
+</head>
+<body>
+    {% include 'common_html.html' %}
+    <div id="container">
+        <div class="creative_container">
+            <span id="creative_span"></span>
+            <span id="cursor"></span>
+        </div>
+        <div class="description">
+            <div class="purpose">
+                <h3 class="purpose_h3">Что вы можете найти на сайте?</h3>
+                <p class="purpose_p">На нашем веб-сайте вы найдете полезную информацию о том, какие индивидуальные достижения учитываются при поступлении в московские вузы, что каждое ИД из себя представляет, их описание. Также есть возможность пройти бесплатный тест, который поможет определить, какие виды ИД больше всего подходят именно Вам.</p>
+            </div>
+            <div class="what_is">
+                <h3 class="what_is_h3">Что такое индивидуальные достижения?</h3>
+                <p class="what_is_p">Индивидуальные достижения — это любые награды, признания, публикации, проекты, работы, которые вы получили или сделали в течение своей учебы или внеучебной деятельности. Это может быть победа или призовое место на олимпиаде, конкурсе, фестивале, спортивном соревновании, научная статья, творческая работа, волонтерская акция и т.д.</p>
+            </div>
+            <div class="why_they_needed">
+                <h3 class="why_they_needed_h3">Зачем нужны индивидуальные достижения?</h3>
+                <p class="why_they_need_p">При поступлении в вузы вы можете получить дополнительные баллы за свои индивидуальные достижения, которые будут учитываться вместе с результатами ЕГЭ или внутренних экзаменов. Каждый вуз самостоятельно определяет, какие достижения учитывать, за что и сколько давать баллов, и публикует эту информацию на своем сайте не позднее 1 ноября предшествующего года приема.</p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'main_page/js/main_page.js' %}"></script>
+</body>
+</html>

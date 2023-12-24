@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Индвивидуальные достижения</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'achievements/css/individual_for_vuz.css' %}" />
+  </head>
+  <body>
+    {% include 'common_html.html' %}
+    <div id="container">
+      <div id="searchBox">
+        <input id="searchInput" type="text" name="" placeholder="Введите ВУЗ", oninput="searchButtons()">
+        <button id="searchButton" href="#">
+            <i class="material-icons">
+                <i class="fa fa-search"></i>
+            </i>
+        </button>
+      </div>
+      <div id="datas">
+        <div class="blocks_data">
+          <article id="bd1">
+            <button class="article_btns" id="article_btn1" onclick="getDetails(this)">
+              <img
+                class="arrs"
+                id="arr1"
+                src="{% static 'achievements/images/стрелка_вниз.png' %}"
+              />
+              МФТИ
+            </button>
+            <div class="content_bds disp_none" id="content_bd1">
+              {% for i in mipt_data %}
+              {% include 'data_from_bd.html' %}
+              {% endfor %}
+            </div>
+          </article>
+          <article id="bd2">
+            <button class="article_btns" id="article_btn2" onclick="getDetails(this)">
+              <img
+                class="arrs"
+                id="arr2"
+                src="{% static 'achievements/images/стрелка_вниз.png' %}"
+              />
+              МГУ
+            </button>
+            <div class="content_bds disp_none" id="content_bd2">
+              {% for i in mgu_data %}
+              {% include 'data_from_bd.html' %}
+              {% endfor %}
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'achievements/js/individual_for_vuz.js' %}"></script>
+  </body>
+</html>
+

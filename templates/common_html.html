@@ -1,0 +1,18 @@
+{% load static %}
+<nav id="nav">
+    <a href="{% url 'main_page' %}" class="logo"><img src="{% static 'main_page/images/vuz.jpg' %}" alt=""></a>
+    <ul class="navbar_ul">
+        <li><a class="nav_a" href="{% url 'main_page' %}">Главная</a></li>
+        <li><a class="nav_a" href="{% url 'individual_achievements_vuz' %}">ИД вузов</a></li>
+        <li><a class="nav_a" href="">Описание ИД</a></li>
+        <li><a class="nav_a" href="">Пример портфолио</a></li>
+        <li><a class="nav_a" href="">Тест</a></li>
+        <li><a class="nav_a" href="">Вход/Регистрация</a></li>
+    </ul>
+</nav>
+<button id="favorites_btn">
+    <img id="favorites_img" src="{% static 'main_page/images/favorites.png' %}">
+</button>
+<button id="settings_btn" onclick="openSettings()">
+    <img id="settings_img" src="{% static 'main_page/images/настройки.png' %}">
+</button>
