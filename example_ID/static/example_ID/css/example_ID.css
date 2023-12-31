@@ -1,0 +1,140 @@
+#example-container {
+  margin: 20px auto;
+  width: 60%;
+  border: 5px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  background: rgba(248, 249, 250, 0.65);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+  line-height: 1.5;
+  color: #333;
+}
+
+#example-container > div {
+  margin: 30px 0 70px;
+}
+
+#example-container > div:last-child {
+  margin-bottom: 0;
+}
+
+.example-h2 {
+  font-family: inherit;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px auto;
+  width: 90%;
+  border-radius: 15px;
+  padding: 10px 0;
+  border-top: 4px solid #009879;
+  border-right: 4px solid #009879;
+  border-bottom: 4px solid #22d1ee;
+  border-left: 4px solid #22d1ee;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-table {
+  font-family: inherit;
+  width: 80%;
+  border-collapse: collapse;
+  margin: 50px auto 20px;
+  font-size: 0.9em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  background-color: #f8f9fa;
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease-in-out;
+}
+
+.portfolio-table th {
+  text-align: center;
+  /* background: linear-gradient(to right, #009879, #22d1ee); */
+  background: linear-gradient(to right, #009879, #14c187);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-table tr {
+  transition: background-color 0.5s ease;
+}
+
+.portfolio-table tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.portfolio-table tr:nth-of-type(odd) {
+  background-color: #e9e9e9;
+}
+
+.portfolio-table tr:hover {
+  background-color: #e9ecef;
+}
+
+.portfolio-table tr:hover td {
+  color: #009879;
+  text-shadow: none;
+}
+
+#download-btns {
+  position: relative;
+  padding: 30px 30px;
+}
+
+.download-btn {
+  position: absolute; 
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.download-example-a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.download-btn i {
+  margin-right: 10px;
+}
+
+#download-example-btn {
+  background-color: #009879;
+  bottom: 2em;
+  left: 10em;
+}
+
+#download-ready-example-btn {
+  background-color: #2596ab;
+  bottom: 2em;
+  right: 10em;
+}
+
+#download-example-btn:hover {
+  transform: scale(1.1);
+}
+
+#download-ready-example-btn:hover {
+  transform: scale(1.1);
+}

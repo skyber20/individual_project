@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование</title>
+    <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'individual_testing/css/individual_testing.css' %}">
+</head>
+<body>
+    {% include 'common_html.html' %}
+    <div id="container">
+        <div id="about">
+            <h1 id="about_h1">ТЕСТ</h1>
+            <p id="about_p">Данный тест поможет определить:
+                <ul id="about_ul">
+                    <li id="about_li"><b>"Индивидуальная форма участия</b></li>
+                    <li id="about_li"><b>"Командная форма участия"</b></li>
+                </ul> Нажмите на кнопку "Начать тестирование", чтобы начать тест
+            </p>
+        </div>
+        <button id="start_test" class="buttons" onclick="showTest()">
+            <span class="btn_text">Начать тестирование</span>
+        </button>
+        <div id="test">
+            {% for i in test %}
+            <div class="question" id="question{{i.id}}">
+            <h2><span>Вопрос № {{i.id}}</span></h2>
+            <p><span>{{i.question}}</span></p>
+            <p id="warning{{i.id}}" class="warning">Выберите один из вариантов ответа</p>
+            <div class="question_container">
+                <input type="radio" id="yes{{i.id}}" name="question{{i.id}}" value="Да">
+                <label for="yes{{i.id}}">Да</label><br>
+                <input type="radio" id="no{{i.id}}" name="question{{i.id}}" value="Нет">
+                <label for="no{{i.id}}">Нет</label><br>
+            </div>
+            {% if forloop.last %} 
+                <button id="end_test" onclick="commonFunc('{{i.id}}', endTest)">
+                    <span>Завершить</span>
+                </button>
+            {% else %}
+                <button class="next_question" id="next_question{{i.id}}" onclick="commonFunc('{{i.id}}', nextQuestion)">
+                    <span>Следующий вопрос</span>
+                </button>
+            {% endif %}
+            </div>
+            {% endfor %}
+            <div id="resultBlock">
+                <h2 id="resultH2">РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ</h2>
+                <p id="resultP"></p>
+            </div>
+            <!-- <button id="repeat_test" onclick="repeatTest()">
+                Пройти заново
+            </button> -->
+        </div>
+        <script src="{% static 'individual_testing/js/individual_testing.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </div>
+</body>
+</html>
