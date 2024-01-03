@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'sign_login/css/sign_login.css' %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+        <a href="{% url 'main_page' %}" class="link" id="main-link">На главную</a>
+        <h1>Регистрация</h1>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="password1">Пароль:</label>
+                <input type="password" id="password1" name="password1" required />
+            </div>
+            <div class="form-group">
+                <label for="password2">Подтвердите пароль:</label>
+                <input type="password" id="password2" name="password2" required />
+            </div>
+            <input type="submit" value="Регистрация" id="send-btn"/>
+            <a href="{% url 'login' %}" class="link" id="login-link">Уже есть аккаунт? Войдите тут</a>
+        </form>
+    </div>
+  </body>
+</html>

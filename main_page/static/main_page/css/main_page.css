@@ -57,11 +57,12 @@
 
 .purpose_h3, .what_is_h3, .why_they_needed_h3 {
     color: #fff;
-    font-size: 22px;
+    font-size: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .purpose_p, .what_is_p, .why_they_need_p {
+    font-size: 17px;
     text-align: justify;
     line-height: 1.6;
 }

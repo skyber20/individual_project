@@ -35,24 +35,29 @@ body {
   margin-left: 20px;
 }
 
-.nav_a {
+nav .btn {
+  color: white;
+  background-color: transparent;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  transition: all 0.3s;
+}
+
+nav .btn:hover {
+  color: #800080;
+}
+
+.nav_a, .dropbtn {
+  cursor: pointer;
   font-size: 18px;
   text-decoration: none;
   color: #fff;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s;
 }
 
 .nav_a:hover {
   color: #800080;
-}
-
-.dropbtn {
-  color: white;
-  background-color: transparent;
-  font-weight: bold;
-  font-size: 18px;
-  outline: none;
-  border: none;
 }
 
 .dropdown {
@@ -67,8 +72,8 @@ body {
   width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон */
-  backdrop-filter: blur(10px); /* Размытие для эффекта глубины */
+  background-color: rgba(255, 255, 255, 0.5); 
+  backdrop-filter: blur(10px); 
 }
 
 .dropdown-content a {
@@ -76,19 +81,15 @@ body {
   padding: 15px 20px;
   text-decoration: none;
   display: block;
-  transition: background-color 0.3s ease; /* Плавное изменение фона при наведении */
+  transition: background-color 0.3s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.9); /* Более яркий фон при наведении */
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.dropdown:hover .dropbtn {
-  color: #800080;
 }
 
 #container {
@@ -101,8 +102,8 @@ body {
   border-radius: 8px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  animation: fadeIn 1s ease-in;
   transform-origin: top;
+  animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
