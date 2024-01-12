@@ -1,0 +1,59 @@
+#myFooter {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+.footer-logo {
+    width: 10%;
+}
+
+.fa-question-circle {
+    font-size: 32px;
+    color: lightblue;
+    transition: all 0.3s;
+}
+
+.footer-section {
+  width: 45%;
+  border-left: 1px solid white;
+  padding-left: 20px;
+  transition: all 0.5s;
+}
+
+.footer-section:first-child {
+  border-left: none;
+}
+
+.footer-section:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.footer-section h3 {
+  font-size: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footer-section p {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.footer-section a {
+  font-size: 19px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.footer-section a:hover,
+.fas:hover {
+  color: #800080;
+}

@@ -7,6 +7,7 @@
     <title>Главная страница</title>
     <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'main_page/css/main_page.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/basement.css' %}">
 </head>
 <body>
     {% include 'common_html.html' %}
@@ -30,6 +31,7 @@
             </div>
         </div>
     </div>
+    {% include 'basement.html' %}
     <script src="{% static 'main_page/js/main_page.js' %}"></script>
 </body>
 </html>

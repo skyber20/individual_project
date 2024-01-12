@@ -60,7 +60,6 @@
 
 .content_bds {
   width: 80%;
-  /* max-width: 800px; */
   margin: 20px auto;
   border: 5px solid #333;
   border-radius: 10px;
@@ -71,6 +70,44 @@
   font-size: 16px;
   line-height: 1.5;
   color: #333;
+}
+
+.content {
+  position: relative;
+}
+
+.fa-heart {
+  transition: all 0.3s;
+}
+
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+.adding-fav {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 22px;
+  cursor: pointer;
+  display: block;
+  text-align: right;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+
+.adding-fav:hover {
+  transform: scale(1.2);
+}
+
+.fa-heart:hover {
+  color: red;
 }
 
 .part_of_data {

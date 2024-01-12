@@ -22,6 +22,7 @@ function getDetails(button) {
   }
 }
 
+
 function searchButtons() {
   const userInput = document.getElementById('searchInput').value.toLowerCase()
   const buttons = document.querySelectorAll('.article_btns')
@@ -35,4 +36,11 @@ function searchButtons() {
         bd.style.display = 'none'
     }
   }
+}
+
+
+function addingFav(heart) {
+  const heartImg = document.getElementById(heart)
+  heartImg.classList.toggle('red')
+  heartImg.classList.toggle('black')
 }

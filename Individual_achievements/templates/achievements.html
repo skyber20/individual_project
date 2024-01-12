@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <title>Индвивидуальные достижения</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'achievements/css/individual_for_vuz.css' %}">
   </head>
@@ -32,22 +33,28 @@
             </button>
             <div class="content_bds disp_none" id="content_bd1">
               {% for i in mipt_data %}
-              {% include 'data_from_bd.html' %}
+              <div class="content">
+                {% include 'data_from_bd.html' %}
+                <button class="adding-fav" id="adding-fav{{i.id}}" onclick="addingFav('heart1{{i.id}}')"><i class="fas fa-heart black" id="heart1{{i.id}}"></i></button>
+              </div>
               {% endfor %}
             </div>
           </article>
           <article id="bd2">
             <button class="article_btns buttons" id="article_btn2" onclick="getDetails(this)">
               <img
-                class="arrs"
-                id="arr2"
-                src="{% static 'achievements/images/стрелка_вниз.png' %}"
+              class="arrs"
+              id="arr2"
+              src="{% static 'achievements/images/стрелка_вниз.png' %}"
               />
               <span class="btn_text">МГУ</span>
             </button>
             <div class="content_bds disp_none" id="content_bd2">
               {% for i in mgu_data %}
-              {% include 'data_from_bd.html' %}
+              <div class="content">
+                {% include 'data_from_bd.html' %}
+                <button class="adding-fav" id="adding-fav2{{i.id}}" onclick="addingFav('heart2{{i.id}}')"><i class="fas fa-heart" id="heart2{{i.id}}"></i></button>
+              </div>
               {% endfor %}
             </div>
           </article>

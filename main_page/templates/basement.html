@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<footer id="myFooter">
+    <div id="logo" class="footer-logo">
+        <a href="{% url 'main_page' %}"><img src="{% static 'main_page/images/vuz.jpg' %}" alt=""></a>
+    </div>
+    <div class="footer-section">
+        <h3>Часто задаваемые вопросы</h3>
+        <p><a href="#"><i class="fas fa-question-circle""></i></a></p>
+    </div>
+    <div class="footer-section">
+        <h3>Контакты</h3>
+        <p><a href="mailto:arttim1019@gmail.com">Написать на почту</a></p>
+    </div>
+</footer>
