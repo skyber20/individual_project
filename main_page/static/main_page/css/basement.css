@@ -54,6 +54,6 @@
 }
 
 .footer-section a:hover,
-.fas:hover {
+.fa-question-circle:hover {
   color: #800080;
 }

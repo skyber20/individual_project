@@ -1,5 +1,6 @@
 {% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <nav id="nav">
     <a href="{% url 'main_page' %}" id="logo"><img src="{% static 'main_page/images/vuz.jpg' %}" alt=""></a>
     <div id="navbar">
@@ -34,6 +35,7 @@
         </ul>
     </div>
 </nav>
+<i id="theme-icon" class="fas fa-moon theme-icon"></i>
 <button id="favorites_btn">
     <img id="favorites_img" src="{% static 'main_page/images/favorites.png' %}">
 </button>
