@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="{% static 'main_page/css/faq.css' %}">
+</head>
+<body>
+    <div id="container">
+        <div id="examples">
+            <h2>Примеры документов</h2>
+            <div id="examples-documents">
+                <div class="faq-item">
+                    <h2>Пример 1</h2>
+                    <a href="{% static 'main_page/images/пример1.jpg' %}"><img src="{% static 'main_page/images/пример1.jpg' %}" alt="FAQ Example 1"></a>
+                </div>
+                <div class="faq-item">
+                    <h2>Пример 2</h2>
+                    <a href="{% static 'main_page/images/пример2.jpg' %}"><img src="{% static 'main_page/images/пример2.jpg' %}" alt="FAQ Example 2"></a>
+                </div>
+                <div class="faq-item" id="example3">
+                    <h2>Пример 3</h2>
+                    <a href="{% static 'main_page/images/пример3.jpg' %}"><img src="{% static 'main_page/images/пример3.jpg' %}" alt="FAQ Example 3"></a>
+                </div>
+                <div class="faq-item">
+                    <h2>Пример 4</h2>
+                    <a href="{% static 'main_page/images/пример4.jpg' %}"><img src="{% static 'main_page/images/пример4.jpg' %}" alt="FAQ Example 4"></a>
+                </div>
+                <div class="faq-item">
+                    <h2>Пример 5</h2>
+                    <a href="{% static 'main_page/images/пример5.jpg' %}"><img src="{% static 'main_page/images/пример5.jpg' %}" alt="FAQ Example 5"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'main_page',
     'individual_testing',
     'example_ID',
-    'sign_login'
+    'sign_login',
+    'calculator',
+    'description_ID'
 ]
 
 MIDDLEWARE = [

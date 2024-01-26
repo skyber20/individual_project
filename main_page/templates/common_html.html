@@ -7,9 +7,10 @@
         <ul id="navbar_ul">
             <li><button class="btn"><a class="nav_a" href="{% url 'main_page' %}">Главная</a></button></li>
             <li><button class="btn""><a class="nav_a" href="{% url 'individual_achievements_vuz' %}">ИД вузов</a></button></li>
+            <li><button class="btn"><a class="nav_a" href="{% url 'description_ID' %}">Описание ИД</a></button></li>
             <li><button class="btn"><a class="nav_a" href="{% url 'individual_testing' %}">Тест</a></button></li>
-            <li><button class="btn"><a class="nav_a" href="#">Описание ИД</a></button></li>
-            <li><button class="btn"><a class="nav_a" href="{% url 'example_portfolio' %}">Пример портфолио</a></button></li>
+            <li><button class="btn"><a class="nav_a" href="{% url 'calculator' %}">Калькулятор ИД</a></button></li>
+            <!-- <li><button class="btn"><a class="nav_a" href="{% url 'example_portfolio' %}">Пример портфолио</a></button></li> -->
             {% if username %}
             <li id="user-li">
                 <div class="dropdown">

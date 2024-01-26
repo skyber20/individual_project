@@ -110,11 +110,11 @@
   color: red;
 }
 
-.part_of_data {
+.part-of-data {
   transition: transform 0.3s ease-in;
 }
 
-.part_of_data:hover {
+.part-of-data:hover {
   transform: scale(1.03);
 }
 

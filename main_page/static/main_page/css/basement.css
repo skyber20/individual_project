@@ -10,12 +10,8 @@
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
 }
 
-.footer-logo {
-    width: 10%;
-}
-
 .fa-question-circle {
-    font-size: 32px;
+    font-size: 40px;
     color: lightblue;
     transition: all 0.3s;
 }
@@ -56,4 +52,60 @@
 .footer-section a:hover,
 .fa-question-circle:hover {
   color: #800080;
+}
+
+
+#rating-block {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+
+#rating-panel {
+  max-width: 255px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: auto;
+  margin-top: 50px;
+}
+
+#rating {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+#rating div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#rating div:hover span {
+  color: #FFD700;
+}
+
+#rating span {
+  font-size: 30px;
+  margin-right: 5px;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+#data-about-rating {
+  width: 10%;
+  padding: 10px;
+  background-color: red;
 }

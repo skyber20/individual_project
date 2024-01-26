@@ -1,0 +1,41 @@
+#container {
+  padding: 0;
+  min-height: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#nav-post {
+  background-color: rgba(0, 0, 0, 0.736);
+  padding: 20px;
+}
+
+#nav-post-inside {
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-item {
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s all;
+}
+
+.nav-item:hover {
+  color: #800080;
+}
+
+#container-content {
+  display: none;
+  padding: 20px;
+}

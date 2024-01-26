@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Описание ИД</title>
+    <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'description_ID/css/description_ID.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    {% include 'common_html.html' %}
+    <div id="container">
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" id="section" name="section">
+        </form>
+        <div id="nav-post">
+            <div id="nav-post-inside">
+                <div class="nav-item" onclick="getContent('Перечневые');">Перечневые олимпиады</div>
+                <div class="nav-item" onclick="getContent('Другое');">Другое</div>
+            </div>
+        </div>
+        <div id="container-content">
+            <div id="content">{{ content }}</div>
+        </div>
+    </div>
+    <script src="{% static 'description_ID/js/description_ID.js' %}"></script>
+</body>
+</html>
