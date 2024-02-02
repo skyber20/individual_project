@@ -13,8 +13,9 @@
 }
 
 #nav-post {
-  background-color: rgba(0, 0, 0, 0.736);
+  background-color: rgba(0, 0, 0, 0.533);
   padding: 20px;
+  border-radius: 8px;
 }
 
 #nav-post-inside {
@@ -38,4 +39,77 @@
 #container-content {
   display: none;
   padding: 20px;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  padding: 20px;
+  width: 40%;
+  height: 415px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+#empty-p {
+  margin: 15px auto;
+  color: rgba(222, 219, 219, 0.352);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.card h2,
+.card p {
+  margin: 0;
+}
+
+.card h2 {
+  text-align: left;
+  font-size: 24px;
+  color: black;
+}
+
+.card p {
+  color: #505050;
+  font-size: 20px;
+  margin: 30px 0 0;
+}
+
+.card button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  text-align: center;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+.card button:last-child {
+  margin-bottom: 10px;
 }

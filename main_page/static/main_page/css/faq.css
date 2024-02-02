@@ -2,12 +2,34 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
     background-color: #f4f4f4;
+    position: relative;
+}
+
+#back-link {
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 20px;
+    background-color: white;
+    position: fixed;
+}
+
+#back-link a {
+    color: black;
+}
+
+.arrow-left {
+    font-size: 20px;
 }
 
 #container {
     width: 60%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 20px 10px;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
@@ -18,9 +40,17 @@ body {
 }
 
 #examples h2 {
-    font-size: 2em;
+    font-size: 2.2em;
     color: #444;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#examples h3 {
+    font-size: 1.5em;
+    color: #444;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 10px;
 }
 
 #examples-documents {
@@ -36,14 +66,6 @@ body {
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-}
-
-.faq-item h2 {
-    font-size: 1.5em;
-    color: #444;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 10px;
 }
 
 .faq-item img {

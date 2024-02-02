@@ -1,8 +1,16 @@
 from django.db import models
 
-class Test(models.Model):
+class PersonalTest(models.Model):
     question = models.TextField()
-    correct_answer = models.CharField()
 
     class Meta:
-        db_table = 'testing'
+        db_table = 'personal_testing'
+
+
+class DetailedAnswers(models.Model):
+    start_points = models.IntegerField()
+    end_points = models.IntegerField()
+    answer = models.TextField()
+
+    class Meta:
+        db_table = 'detailed_answers'

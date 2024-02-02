@@ -26,33 +26,51 @@
         <div id="test">
             {% for i in test %}
             <div class="question" id="question{{i.id}}">
-            <h2><span>Вопрос № {{i.id}}</span></h2>
-            <p><span>{{i.question}}</span></p>
-            <p id="warning{{i.id}}" class="warning">Выберите один из вариантов ответа</p>
-            <div class="question_container">
-                <input type="radio" id="yes{{i.id}}" name="question{{i.id}}" value="Да">
-                <label for="yes{{i.id}}">Да</label><br>
-                <input type="radio" id="no{{i.id}}" name="question{{i.id}}" value="Нет">
-                <label for="no{{i.id}}">Нет</label><br>
-            </div>
-            {% if forloop.last %} 
-                <button id="end_test" onclick="commonFunc('{{i.id}}', endTest)">
-                    <span>Завершить</span>
-                </button>
-            {% else %}
-                <button class="next_question" id="next_question{{i.id}}" onclick="commonFunc('{{i.id}}', nextQuestion)">
-                    <span>Следующий вопрос</span>
-                </button>
-            {% endif %}
-            </div>
+                <h2><span>Вопрос № {{i.id}}</span></h2>
+                <p><span>{{i.question}}</span></p>
+                <p id="warning{{i.id}}" class="warning">Выберите один из вариантов ответа</p>
+
+                <div class="question_container">
+                    <input type="radio" id="yes{{i.id}}" name="question{{i.id}}" value=2>
+                    <label for="yes{{i.id}}">Да</label><br>
+                    <input type="radio" id="sometimes{{i.id}}" name="question{{i.id}}" value=1>
+                    <label for="sometimes{{i.id}}">Иногда</label><br>
+                    <input type="radio" id="no{{i.id}}" name="question{{i.id}}" value=0>
+                    <label for="no{{i.id}}">Нет</label><br>
+                </div>
+                {% if forloop.last %} 
+                    <button class="back_question" id="back_question{{i.id}}" onclick="backQuestion('{{i.id}}')">
+                        <span>Назад</span>
+                    </button>
+                    <button id="end_test" onclick="commonFunc('{{i.id}}', endTest)">
+                        <span>Завершить</span>
+                    </button>
+                {% else %}
+                    {% if not forloop.first %}
+                        <button class="back_question" id="back_question{{i.id}}" onclick="backQuestion('{{i.id}}')">
+                            <span>Назад</span>
+                        </button>
+                    {% endif %}
+                    <button class="next_question" id="next_question{{i.id}}" onclick="commonFunc('{{i.id}}', nextQuestion)">
+                        <span>Вперёд</span>
+                    </button>
+                {% endif %}
+                </div>
             {% endfor %}
-            <div id="resultBlock">
-                <h2 id="resultH2">РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ</h2>
-                <p id="resultP"></p>
-            </div>
             <!-- <button id="repeat_test" onclick="repeatTest()">
                 Пройти заново
             </button> -->
+        </div>
+        <div id="resultBlock">
+            <h2 id="resultH2">РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ</h2>
+            <p id="resultP">По результатам тестирования для вас лучше всего подойдет форма участия: </p>
+            <button id="more-details" onclick="moreDetails()">
+                <span id="text-res-btn">
+                    Узнать подробнее
+                </span>
+            </button>
+            <p id="sum-of-points" style="display: none;">Ваше кол-во баллов: </p>
+            <p id="detail-res" style="display: none;"></p>
         </div>
         <script src="{% static 'individual_testing/js/individual_testing.js' %}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
