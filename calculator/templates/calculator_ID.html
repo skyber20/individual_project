@@ -6,11 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Калькулятор ИД</title>
     <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'calculator_id/css/calculator_id.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     {% include 'common_html.html' %}
     <div id="container">
-        
+        <div id="nav-post">
+            <div id="categories">
+                <!-- категории -->
+            </div>
+        </div>
+        <div id="content">
+            <form id="achievements-form" method="post">
+                {% csrf_token %}
+                <div id="achievements">
+                    <!-- здесь будет список ИД в зависимости от категории -->
+                </div>  
+                <button type="submit" class="buttons" id="calculate-btn"><span class="btn_text">посчитать</span></button>
+            </form>
+        </div>
     </div>
+    <script src="{% static 'calculator_id/js/calculator_id.js' %}"></script>
 </body>
 </html>

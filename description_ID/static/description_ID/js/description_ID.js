@@ -13,7 +13,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-let csrftoken = getCookie('csrftoken');
+const csrftoken = getCookie('csrftoken');
 
 function getContent(section) {
     $.ajax({

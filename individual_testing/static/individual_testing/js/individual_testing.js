@@ -14,14 +14,14 @@ function commonFunc(id, Func) {
     const no = document.getElementById('no' + id)
     const sometimes = document.getElementById('sometimes' + id)
     const warningId = document.getElementById('warning' + id)
-    Func(id)
+    // Func(id)
 
-    // if (yes.checked || no.checked || sometimes.checked) {
-    //     warningId.classList.remove('opacity_anim')
-    //     Func(id)
-    // } else {
-    //     warningId.classList.add('opacity_anim')
-    // }
+    if (yes.checked || no.checked || sometimes.checked) {
+        warningId.classList.remove('opacity_anim')
+        Func(id)
+    } else {
+        warningId.classList.add('opacity_anim')
+    }
 }
 
 
