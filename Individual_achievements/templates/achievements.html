@@ -22,42 +22,24 @@
       </div>
       <div id="datas">
         <div class="blocks_data">
-          <article id="bd1">
-            <button class="article_btns buttons" id="article_btn1" onclick="getDetails(this)">
-              <img
-                class="arrs"
-                id="arr1"
-                src="{% static 'achievements/images/стрелка_вниз.png' %}"
-              />
-              <span class="btn_text">МФТИ</span>
-            </button>
-            <div class="content_bds disp_none" id="content_bd1">
-              {% for i in mipt_data %}
-              <div class="content">
-                {% include 'data_from_bd.html' %}
-                <button class="adding-fav" id="adding-fav{{i.id}}" onclick="addingFav('heart1{{i.id}}')"><i class="fas fa-heart black" id="heart1{{i.id}}"></i></button>
+          {% for table_name, queryset in data %}
+            <article id="bd{{forloop.counter}}">
+              <button class="article_btns buttons" id="article_btn{{forloop.counter}}" onclick="getDetails(this)">
+                <img class="arrs" id="arr{{forloop.counter}}" src="{% static 'achievements/images/стрелка_вниз.png' %}" />
+                <span class="btn_text">{{table_name}}</span>
+              </button>
+              <div class="content_bds disp_none" id="content_bd{{forloop.counter}}">
+                {% for item in queryset %}
+                  <div class="content">
+                    {% include 'data_from_bd.html' %}
+                    <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}')">
+                      <i class="fas fa-heart black" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
+                    </button>
+                  </div>
+                {% endfor %}
               </div>
-              {% endfor %}
-            </div>
-          </article>
-          <article id="bd2">
-            <button class="article_btns buttons" id="article_btn2" onclick="getDetails(this)">
-              <img
-              class="arrs"
-              id="arr2"
-              src="{% static 'achievements/images/стрелка_вниз.png' %}"
-              />
-              <span class="btn_text">МГУ</span>
-            </button>
-            <div class="content_bds disp_none" id="content_bd2">
-              {% for i in mgu_data %}
-              <div class="content">
-                {% include 'data_from_bd.html' %}
-                <button class="adding-fav" id="adding-fav2{{i.id}}" onclick="addingFav('heart2{{i.id}}')"><i class="fas fa-heart" id="heart2{{i.id}}"></i></button>
-              </div>
-              {% endfor %}
-            </div>
-          </article>
+            </article>
+          {% endfor %}
         </div>
       </div>
     </div>

@@ -26,3 +26,11 @@ class MGU(CommonTable):
     
     def __str__(self):
         return 'mgu_bd'
+    
+
+class Mifi(CommonTable):
+    class Meta:
+        db_table = 'mifi_bd'
+
+    def __str__(self):
+        return 'mifi_bd'
