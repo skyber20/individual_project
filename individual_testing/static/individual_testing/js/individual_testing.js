@@ -55,7 +55,7 @@ function endTest(id) {
             userAnswers.push(radio.value)
         }
     })
-
+    
     $.ajax({
         url: "/compare_answers/", 
         type: "post",

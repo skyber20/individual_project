@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'main_page/css/main_page.css' %}">
     <link rel="stylesheet" href="{% static 'main_page/css/basement.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     {% include 'common_html.html' %}
@@ -31,7 +32,43 @@
             </div>
         </div>
     </div>
-    {% include 'basement.html' %}
+    <div id="zatemnitel">
+        <div id="rating-site">
+            <i class="cross" id="cross1" class="fas fa-times" onclick="closeWindow('rating-site', true)"></i>
+            <div id="rating-panel">
+                <p class="amount-ratings">Всего оценок:</p>
+                <p class="amount-ratings" id="res-amount">{{all_rates}}</p>
+                <div id="rating">
+                    <i class="fas fa-angry fa-2x" style="color: red;" onclick="getRate(1)"><span>{{count_rates.1}}</span></i>
+                    <i class="fas fa-frown fa-2x" style="color: orange;" onclick="getRate(2)"><span>{{count_rates.2}}</span></i>
+                    <i class="fas fa-meh fa-2x" style="color: yellow;" onclick="getRate(3)"><span>{{count_rates.3}}</span></i>
+                    <i class="fas fa-smile fa-2x" style="color: green;" onclick="getRate(4)"><span>{{count_rates.4}}</span></i>
+                    <i class="fas fa-grin fa-2x" style="color: lime;" onclick="getRate(5)"><span>{{count_rates.5}}</span></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="thanks-for-rating">
+        <i class="cross" id="cross2" class="fas fa-times" onclick="closeWindow('thanks-for-rating')"></i>
+        <p id="thanks-p">Спасибо за оценку!</p>
+    </div>
+    <footer id="myFooter">
+        <div class="footer-section">
+            <h3>Часто задаваемые вопросы</h3>
+            <p><a href="{% url 'show_faq' %}"><i class="fas fa-question-circle""></i></a></p>
+        </div>
+        <div class="footer-section">
+            <h3>Оценить сайт</h3>
+            <div id="rating-block">
+                <p><a href="#" id="rate-link">Оценить</a></p>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p><a href="mailto:arttim1019@gmail.com">Связаться со мной</a></p>
+        </div>
+    </footer>
     <script src="{% static 'main_page/js/main_page.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>

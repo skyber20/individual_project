@@ -1,11 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Rating(models.Model):
-    star5 = models.IntegerField(default=0)
-    star4 = models.IntegerField(default=0)
-    star3 = models.IntegerField(default=0)
-    star2 = models.IntegerField(default=0)
-    star1 = models.IntegerField(default=0)
+    user = models.CharField(max_length=150)
+    rating = models.IntegerField()
 
     class Meta:
         db_table = 'rating_table'

@@ -10,6 +10,7 @@ let i = 0
 let j = 0
 let isDeleting = false
 
+
 function animateText() {
   const text = list_of_creative_sentences[i]
   const len = text.length
@@ -30,10 +31,49 @@ function animateText() {
   }
 }
 
+
 animateText()
 
+
 document.getElementById('rate-link').addEventListener('click', function(e) {
-  e.preventDefault();
-  var panel = document.getElementById('rating-panel');
-  panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
-});
+  e.preventDefault()
+  const ratingSite = document.getElementById('rating-site')
+  const zatemnitel = document.getElementById('zatemnitel')
+  const bool = ratingSite.style.display === 'none'
+
+  ratingSite.style.display = bool ? 'block' : 'none'
+  zatemnitel.style.display = bool ? 'block': 'none'
+})
+
+
+function closeWindow(window, bool=False) {
+  const window = document.getElementById(window)
+
+  if (bool) {
+    const zatemnitel = document.getElementById('zatemnitel')
+    zatemnitel.style.display = 'none'
+  }
+
+  window.style.display = 'none'
+}
+
+
+function getRate(mark) {
+  $.ajax({
+    url: '/rate/',
+    type: 'post',
+    data: {'mark': mark},
+    success: function(data) {
+      const ratingSite = document.getElementById('rating-site')
+      const zatemnitel = document.getElementById('zatemnitel')
+
+      ratingSite.style.display = 'none'
+      zatemnitel.style.display = 'none'
+
+      alert('Спасибо за вашу оценку!')
+    },
+    error: function(xhr, status, error) {
+      alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.')
+    }
+  })
+}
