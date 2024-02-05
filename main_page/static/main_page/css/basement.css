@@ -66,18 +66,12 @@
 }
 
 .cross {
+  color: white;
   cursor: pointer;
   font-size: 32px;
   position: absolute;
   top: 8px;
   right: 15px;
-}
-
-#rating-block {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
 }
 
 #rating-site {
@@ -132,8 +126,8 @@
   margin-right: 0;
 }
 
-#thanks-for-rating {
-  /* display: none; */
+.notification {
+  display: none;
   background-color: #3d3d3d;
   position: fixed;
   top: 0;
@@ -142,12 +136,33 @@
   margin: 0;
   padding: 0 50px;
   border-radius: 8px;
-  border: 2px solid white;
+}
+
+#thanks-for-rating {
+  border: 3px solid white;
   border-top: none;
 }
 
-#thanks-p {
+#smth-wrong {
+  border: 3px solid rgb(252, 71, 71);
+  border-top: none;
+}
+
+.notification-p {
+  font-weight: bold;
   font-size: 36px;
+  text-align: center;
   margin: 35px 0;
+}
+
+#thanks-for-rating p {
   color: gray;
+}
+
+#smth-wrong p {
+  color:rgb(252, 71, 71);
+}
+
+#cross3 {
+  color:rgb(252, 71, 71);
 }

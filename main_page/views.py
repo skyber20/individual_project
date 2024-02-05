@@ -33,7 +33,7 @@ def show_faq(request):
 def user_rated(request):
     if request.method == 'POST':
         rating = request.POST.get('mark')
-        if rating is not None:  # Проверка, что рейтинг был предоставлен
+        if rating is not None:
             rating = int(rating)
             user_rating, created = Rating.objects.get_or_create(user=request.user.username)
             user_rating.rating = rating

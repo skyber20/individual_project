@@ -46,15 +46,21 @@ document.getElementById('rate-link').addEventListener('click', function(e) {
 })
 
 
-function closeWindow(window, bool=False) {
-  const window = document.getElementById(window)
+function openRating() {
+  const ratingSite = document.getElementById('rating-site');
+  const zatemnitel = document.getElementById('zatemnitel');
 
-  if (bool) {
-    const zatemnitel = document.getElementById('zatemnitel')
-    zatemnitel.style.display = 'none'
-  }
+  ratingSite.style.display = 'block'
+  zatemnitel.style.display = 'block'
+}
 
-  window.style.display = 'none'
+
+function closeWindow(windowToClose) {
+  const windowToCloseElem = document.getElementById(windowToClose)
+  const zatemnitel = document.getElementById('zatemnitel')
+
+  zatemnitel.style.display = 'none'
+  windowToCloseElem.style.display = 'none'
 }
 
 
@@ -64,16 +70,29 @@ function getRate(mark) {
     type: 'post',
     data: {'mark': mark},
     success: function(data) {
-      const ratingSite = document.getElementById('rating-site')
-      const zatemnitel = document.getElementById('zatemnitel')
-
-      ratingSite.style.display = 'none'
-      zatemnitel.style.display = 'none'
-
-      alert('Спасибо за вашу оценку!')
+      localStorage.setItem('showThanks', 'true')
+      location.reload()
     },
     error: function(xhr, status, error) {
-      alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.')
+      localStorage.setItem('showError', 'true')
+      location.reload()
     }
   })
 }
+
+window.onload = function() {
+  const showThanks = localStorage.getItem('showThanks')
+  const showError = localStorage.getItem('showError')
+  if (showThanks == 'true') {
+    const thanksBlock = document.getElementById('thanks-for-rating')
+    thanksBlock.style.display = 'block'
+    localStorage.setItem('showThanks', 'false')
+  }
+  if (showError == 'true') {
+    const smthWrong = document.getElementById('smth-wrong')
+    smthWrong.style.display = 'block'
+    localStorage.setItem('showError', 'false')
+  }
+
+}
+

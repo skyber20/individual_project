@@ -34,8 +34,8 @@
     </div>
     <div id="zatemnitel">
         <div id="rating-site">
-            <i class="cross" id="cross1" class="fas fa-times" onclick="closeWindow('rating-site', true)"></i>
             <div id="rating-panel">
+                <i id="cross1" class="fas fa-times cross" onclick="closeWindow('rating-site')"></i>
                 <p class="amount-ratings">Всего оценок:</p>
                 <p class="amount-ratings" id="res-amount">{{all_rates}}</p>
                 <div id="rating">
@@ -48,9 +48,13 @@
             </div>
         </div>
     </div>
-    <div id="thanks-for-rating">
-        <i class="cross" id="cross2" class="fas fa-times" onclick="closeWindow('thanks-for-rating')"></i>
-        <p id="thanks-p">Спасибо за оценку!</p>
+    <div class="notification" id="thanks-for-rating">
+        <i id="cross2" class="fas fa-times cross" onclick="closeWindow('thanks-for-rating')"></i>
+        <p class="notification-p" id="thanks-p">Спасибо за отзыв!</p>
+    </div>
+    <div class="notification" id="smth-wrong">
+        <i id="cross3" class="fas fa-times cross" onclick="closeWindow('smth-wrong')"></i>
+        <p class="notification-p" id="wrong-p">Авторизуйтесь на сайт!</p>
     </div>
     <footer id="myFooter">
         <div class="footer-section">
@@ -59,9 +63,7 @@
         </div>
         <div class="footer-section">
             <h3>Оценить сайт</h3>
-            <div id="rating-block">
-                <p><a href="#" id="rate-link">Оценить</a></p>
-            </div>
+            <p onclick="openRating()"><a href="#" id="rate-link">Оценить</a></p>
         </div>
         <div class="footer-section">
             <h3>Контакты</h3>
