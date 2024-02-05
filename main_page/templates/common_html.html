@@ -1,6 +1,8 @@
 {% load static %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div id="zatemnitel"></div>
 <nav id="nav">
     <a href="{% url 'main_page' %}" id="logo"><img src="{% static 'main_page/images/vuz.jpg' %}" alt=""></a>
     <div id="navbar">
@@ -38,6 +40,21 @@
 </nav>
 <i id="theme-icon" class="fas fa-moon theme-icon"></i>
 <button id="favorites_btn">
-    <img id="favorites_img" src="{% static 'main_page/images/favorites.png' %}">
+    <img id="favorites_img" src="{% static 'main_page/images/favorites.png' %}" onclick="openFavorites()">
 </button>
+<div id="favorites-site">
+    <div id="favorites-panel">
+        <i id="cross4" class="fas fa-times cross" onclick="closeWindow('favorites-site')"></i>
+        <div id="favorites-nav">
+            <span id="main-span-fav">Избранное</span>
+            <div id="favorites-links">
+                <p class="nav_a" onclick="showFavorites('ИД вузов')">ИД вузов</p>
+                <p class="nav_a" onclick="showFavorites('Описание ИД')">Описание ИД</p>
+            </div>
+        </div>
+        <div id="section-content">
+
+        </div>
+    </div>
+</div>
 <script src="{% static 'main_page/js/common_js.js' %}"></script>

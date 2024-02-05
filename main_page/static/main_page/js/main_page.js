@@ -55,15 +55,6 @@ function openRating() {
 }
 
 
-function closeWindow(windowToClose) {
-  const windowToCloseElem = document.getElementById(windowToClose)
-  const zatemnitel = document.getElementById('zatemnitel')
-
-  zatemnitel.style.display = 'none'
-  windowToCloseElem.style.display = 'none'
-}
-
-
 function getRate(mark) {
   $.ajax({
     url: '/rate/',

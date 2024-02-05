@@ -31,9 +31,12 @@
               <div class="content_bds disp_none" id="content_bd{{forloop.counter}}">
                 {% for item in queryset %}
                   <div class="content">
+                    <span id="number{{item.id}}" style="display: none;">{{item.number}}</span>
+                    <span id="name{{item.id}}" style="display: none;">{{item.name}}</span>
+                    <span id="category{{item.id}}" style="display: none;">{{item.category}}</span>
                     {% include 'data_from_bd.html' %}
                     <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}')">
-                      <i class="fas fa-heart black" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
+                        <i class="fas fa-heart black" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
                     </button>
                   </div>
                 {% endfor %}
@@ -45,6 +48,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'achievements/js/individual_for_vuz.js' %}"></script>
+    <script src="{% static 'main_page/js/common_js.js' %}"></script>
   </body>
 </html>
 

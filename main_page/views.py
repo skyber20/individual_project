@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from .models import Rating
+from .models import Rating, Achievement, UserProfile
 
 def show_main_page(request):
     ratings = Rating.objects.all()
@@ -43,4 +43,48 @@ def user_rated(request):
             return JsonResponse({'status': 'fail', 'error': 'No rating provided'})
     else:
         return JsonResponse({'status': 'fail'})
+    
 
+@csrf_exempt
+@login_required
+def add_to_favorites(request):
+    if request.method == 'POST':
+        achievement_id = request.POST.get('achievement_id')
+        try:
+            achievement = Achievement.objects.get(pk=achievement_id)
+            user_profile = UserProfile.objects.get(user=request.user)
+            user_profile.favorites.add(achievement)
+            return JsonResponse({'status': 'success'})
+        except Achievement.DoesNotExist:
+            return JsonResponse({'status': 'fail', 'error': 'Achievement does not exist'})
+    else:
+        return JsonResponse({'status': 'fail'})
+
+@csrf_exempt
+@login_required
+def remove_from_favorites(request):
+    if request.method == 'POST':
+        achievement_id = request.POST.get('achievement_id')
+        try:
+            achievement = Achievement.objects.get(pk=achievement_id)
+            user_profile = UserProfile.objects.get(user=request.user)
+            user_profile.favorites.remove(achievement)
+            return JsonResponse({'status': 'success'})
+        except Achievement.DoesNotExist:
+            return JsonResponse({'status': 'fail', 'error': 'Achievement does not exist'})
+    else:
+        return JsonResponse({'status': 'fail'})
+    
+
+@csrf_exempt
+@login_required
+def show_favorites(request):
+    if request.method == 'POST':
+        section = request.POST.get('section')
+        user_profile = UserProfile.objects.get(user=request.user)
+        favorites = user_profile.favorites.filter(category=section)
+        favorites_data = [{'id': fav.achievement_id, 'name': fav.name} for fav in favorites]
+        print(favorites_data)
+        return JsonResponse({'favorites': favorites_data})
+    else:
+        return JsonResponse({'status': 'fail'})

@@ -37,10 +37,3 @@ function searchButtons() {
     }
   }
 }
-
-
-function addingFav(heart) {
-  const heartImg = document.getElementById(heart)
-  heartImg.classList.toggle('red')
-  heartImg.classList.toggle('black')
-}

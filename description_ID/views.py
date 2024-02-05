@@ -11,7 +11,8 @@ def give_description_view(request):
         if section == 'Перечневые':
             descriptions = DescriptionPerechen.objects.values()
             content = "".join(f'<div class="card"><h2>{desc["name_event"]}</h2><div class="buttons-block"><p>Уровень: {desc["level"]}</p>\
-                  <button onclick="location.href=\'#\'">Подробнее</button><button onclick="location.href=\'#\'">На сайт мероприятия</button></div></div>' for desc in descriptions)
+                  <button onclick="location.href=\'#\'">Подробнее</button><button onclick="location.href=\'#\'">На сайт мероприятия</button>\
+                  <i class="fas fa-heart" id="heart{desc["id"]}" onclick="addingFav(\'heart{desc["id"]}\')"></i></div></div>' for desc in descriptions)
         elif section == 'Другое':
             content = f'<p id="empty-p">Тут пока пусто</p>'
         else:
