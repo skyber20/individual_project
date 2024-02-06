@@ -9,20 +9,19 @@ class Rating(models.Model):
         db_table = 'rating_table'
 
 
-
-class Achievement(models.Model):
-    achievement_id = models.AutoField(primary_key=True)
-    number = models.IntegerField(null=False)
-    category = models.CharField(max_length=200)
-    name = models.CharField(max_length=200)
+class FavObject(models.Model):
+    fav_object_id = models.AutoField(primary_key=True)
+    number_fav_object = models.IntegerField(null=False)
+    name_fav_object = models.TextField()
+    section = models.CharField(max_length=100)
 
     class Meta:
-        db_table='achievement_info'
+        db_table='fav_object_info'
 
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    favorites = models.ManyToManyField(Achievement)
+    favorites = models.ManyToManyField(FavObject)
 
     class Meta:
         db_table = 'user_and_favorites_bd'

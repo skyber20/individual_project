@@ -22,7 +22,7 @@
       </div>
       <div id="datas">
         <div class="blocks_data">
-          {% for table_name, queryset in data %}
+          {% for table_name, queryset in vuzes_data %}
             <article id="bd{{forloop.counter}}">
               <button class="article_btns buttons" id="article_btn{{forloop.counter}}" onclick="getDetails(this)">
                 <img class="arrs" id="arr{{forloop.counter}}" src="{% static 'achievements/images/стрелка_вниз.png' %}" />
@@ -31,12 +31,11 @@
               <div class="content_bds disp_none" id="content_bd{{forloop.counter}}">
                 {% for item in queryset %}
                   <div class="content">
-                    <span id="number{{item.id}}" style="display: none;">{{item.number}}</span>
-                    <span id="name{{item.id}}" style="display: none;">{{item.name}}</span>
-                    <span id="category{{item.id}}" style="display: none;">{{item.category}}</span>
+                    <span id="number{{forloop.parentloop.counter}}{{item.id}}" style="display: none;">{{item.id}}</span>
+                    <span id="name{{forloop.parentloop.counter}}{{item.id}}" style="display: none;">{{item.type_of_event}}</span>
                     {% include 'data_from_bd.html' %}
-                    <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}')">
-                        <i class="fas fa-heart black" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
+                    <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}', 'vuzes')">
+                      <i class="fas fa-heart {% if item.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
                     </button>
                   </div>
                 {% endfor %}

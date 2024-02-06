@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from .models import Rating, Achievement, UserProfile
+from .models import Rating, FavObject, UserProfile
 
 def show_main_page(request):
     ratings = Rating.objects.all()
@@ -49,42 +49,58 @@ def user_rated(request):
 @login_required
 def add_to_favorites(request):
     if request.method == 'POST':
-        achievement_id = request.POST.get('achievement_id')
-        try:
-            achievement = Achievement.objects.get(pk=achievement_id)
-            user_profile = UserProfile.objects.get(user=request.user)
-            user_profile.favorites.add(achievement)
-            return JsonResponse({'status': 'success'})
-        except Achievement.DoesNotExist:
-            return JsonResponse({'status': 'fail', 'error': 'Achievement does not exist'})
+        fav_object_id = request.POST.get('fav_object_id')
+        number_fav_object = request.POST.get('number_fav_object')
+        name_fav_object = request.POST.get('name_fav_object')
+        section = request.POST.get('section')
+
+        fav_obj, created = FavObject.objects.get_or_create(
+            pk=fav_object_id,
+            defaults={
+                'number_fav_object': number_fav_object,
+                'name_fav_object': name_fav_object,
+                'section': section
+            }
+        )
+
+        user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+        if fav_obj in user_profile.favorites.all():
+            return JsonResponse({'status': 'Объект уже записан'})
+        else:
+            user_profile.favorites.add(fav_obj)
+            return JsonResponse({'status': 'Объект успешно записан'})
     else:
-        return JsonResponse({'status': 'fail'})
+        return JsonResponse({'status': 'error'})
+    
 
 @csrf_exempt
 @login_required
 def remove_from_favorites(request):
     if request.method == 'POST':
-        achievement_id = request.POST.get('achievement_id')
+        section = request.POST.get('section')
+        fav_object_id = request.POST.get('fav_object_id')
+
         try:
-            achievement = Achievement.objects.get(pk=achievement_id)
+            fav_obj = FavObject.objects.get(pk=fav_object_id, section=section)
             user_profile = UserProfile.objects.get(user=request.user)
-            user_profile.favorites.remove(achievement)
-            return JsonResponse({'status': 'success'})
-        except Achievement.DoesNotExist:
-            return JsonResponse({'status': 'fail', 'error': 'Achievement does not exist'})
+            user_profile.favorites.remove(fav_obj)
+            return JsonResponse({'status': 'Объект успешно удалён'})
+        except FavObject.DoesNotExist:
+            return JsonResponse({'status': 'Такого объекта не существует'})
     else:
-        return JsonResponse({'status': 'fail'})
+        return JsonResponse({'status': 'ошибка'})
     
 
-@csrf_exempt
-@login_required
-def show_favorites(request):
-    if request.method == 'POST':
-        section = request.POST.get('section')
-        user_profile = UserProfile.objects.get(user=request.user)
-        favorites = user_profile.favorites.filter(category=section)
-        favorites_data = [{'id': fav.achievement_id, 'name': fav.name} for fav in favorites]
-        print(favorites_data)
-        return JsonResponse({'favorites': favorites_data})
-    else:
-        return JsonResponse({'status': 'fail'})
+# @csrf_exempt
+# @login_required
+# def show_favorites(request):
+#     if request.method == 'POST':
+#         razdel = request.POST.get('razdel')
+#         user_profile = UserProfile.objects.get(user=request.user)
+#         favorites = user_profile.favorites.filter(category=razdel)
+#         favorites_data = [{'id': fav.fav_object_id, 'name': fav.name} for fav in favorites]
+#         print(favorites_data)
+#         return JsonResponse({'favorites': favorites_data})
+#     else:
+#         return JsonResponse({'status': 'fail'})

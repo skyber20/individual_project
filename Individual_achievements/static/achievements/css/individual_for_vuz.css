@@ -195,19 +195,21 @@
   color: #333;
 }
 
-.content_bds ul {
+.part-of-data ul {
+  padding: 0;
   list-style: none;
+  margin-left: 15px;
   margin-bottom: 10px;
 }
 
-.content_bds ul li::before {
+.part-of-data ul li::before {
   content: "✓";
   display: inline-block;
   width: 20px;
   color: green;
 }
 
-.content_bds ul li {
+.part-of-data ul li {
   opacity: 0.8;
 }
 

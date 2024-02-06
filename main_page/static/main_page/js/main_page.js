@@ -71,6 +71,7 @@ function getRate(mark) {
   })
 }
 
+
 window.onload = function() {
   const showThanks = localStorage.getItem('showThanks')
   const showError = localStorage.getItem('showError')
@@ -86,4 +87,3 @@ window.onload = function() {
   }
 
 }
-
