@@ -222,6 +222,10 @@ favorites-panel {
   padding: 20px;
 }
 
+.fav-p {
+  color: black;
+}
+
 #favorites_btn {
   background: none;
   border: none;

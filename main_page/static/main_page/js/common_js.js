@@ -65,47 +65,23 @@ function addingFav(heartId, section) {
 }
 
 
-
-// function addingFavVuzes(heartId, razdel) {
-//     const heartImg = document.getElementById(heartId)
-//     const achievementId = heartId.replace('heart', '')
-//     const achievementNumber = document.getElementById('number' + achievementId).textContent
-//     const achievementName = document.getElementById('name' + achievementId).textContent
-
-//     heartImg.classList.toggle('black')
-//     heartImg.classList.toggle('red')
-
-    // const url = heartImg.classList.contains('red') ? '/add_to_favorites_vuzes/' : '/remove_from_favorites_vuzes/';
-
-//     $.ajax({
-//         url: url,
-//         type: 'post',
-//         data: {
-//             'achievement_id': achievementId,
-//             'achievement_number': achievementNumber,
-//             'achievement_name': achievementName,
-//             'achievement_category': razdel
-//         },
-//         success: function(data) {
-//             alert(data.status);
-//         },
-//         error: function(xhr, status, error) {
-//             alert(status);
-//         }
-//     });
-// }
-
-
-// function showFavorites(razdel) {
-//     $.ajax({
-//         url: '/show_favorites/',
-//         type: 'post',
-//         data: {'section': razdel},
-//         success: function(data) {
-//             alert('получилось')
-//         },
-//         error: function(xhr, status, error) {
-//             alert('ошибка')
-//         }
-//     })
-// }
+function showFavorites(razdel) {
+    $.ajax({
+        url: '/show_favorites/',
+        type: 'post',
+        data: {'section': razdel},
+        success: function(data) {
+            const sectionContent = document.getElementById('section-content')
+            sectionContent.innerHTML = ''
+            data.favorites.forEach(function(favorite) {
+                const favP = document.createElement('p')
+                favP.className = 'fav-p'
+                favP.textContent = favorite.fav_id + ' ' + favorite.fav_name
+                sectionContent.appendChild(favP)
+            })
+        },
+        error: function(xhr, status, error) {
+            alert('ошибка')
+        }
+    })
+}

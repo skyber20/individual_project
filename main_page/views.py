@@ -92,15 +92,15 @@ def remove_from_favorites(request):
         return JsonResponse({'status': 'ошибка'})
     
 
-# @csrf_exempt
-# @login_required
-# def show_favorites(request):
-#     if request.method == 'POST':
-#         razdel = request.POST.get('razdel')
-#         user_profile = UserProfile.objects.get(user=request.user)
-#         favorites = user_profile.favorites.filter(category=razdel)
-#         favorites_data = [{'id': fav.fav_object_id, 'name': fav.name} for fav in favorites]
-#         print(favorites_data)
-#         return JsonResponse({'favorites': favorites_data})
-#     else:
-#         return JsonResponse({'status': 'fail'})
+@csrf_exempt
+@login_required
+def show_favorites(request):
+    if request.method == 'POST':
+        razdel = request.POST.get('section')
+        user_profile = UserProfile.objects.get(user=request.user)
+        favorites = user_profile.favorites.filter(section=razdel)
+        favorites_data = [{'fav_id': fav.fav_object_id, 'fav_name': fav.name_fav_object} for fav in favorites]
+        print(favorites_data)
+        return JsonResponse({'favorites': favorites_data})
+    else:
+        return JsonResponse({'status': 'fail'})
