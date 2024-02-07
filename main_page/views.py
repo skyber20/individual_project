@@ -71,7 +71,7 @@ def add_to_favorites(request):
             user_profile.favorites.add(fav_obj)
             return JsonResponse({'status': 'Объект успешно записан'})
     else:
-        return JsonResponse({'status': 'error'})
+        return JsonResponse({'status': ''})
     
 
 @csrf_exempt

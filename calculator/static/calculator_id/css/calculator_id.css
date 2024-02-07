@@ -29,11 +29,58 @@
 }
 
 .nav-item:hover {
-  color: #800080;
+  color: #60e7aa;
 }
 
 #content {
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#achievements-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#achievements {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.label-achieve {
+  display: block;
+  padding: 10px;
+  transition: background 0.3s ease;
+}
+
+.label-achieve:hover {
+  background: #f1f1f129;
+}
+
+.input-achieve {
+  margin-right: 10px;
+}
+
+/* Стили для .select-achieve */
+.select-achieve {
+  margin-left: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.select-achieve:focus {
+  border-color: #3498db;
 }
 
 .buttons {

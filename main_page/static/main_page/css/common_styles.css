@@ -65,7 +65,7 @@ nav .btn {
 }
 
 nav .btn:hover {
-  color: #800080;
+  color: #60e7aa;
 }
 
 .nav_a,
@@ -78,7 +78,7 @@ nav .btn:hover {
 }
 
 .nav_a:hover {
-  color: #800080;
+  color: #60e7aa;
 }
 
 .dropdown {
@@ -166,6 +166,39 @@ favorites-panel {
   text-align: center;
   letter-spacing: 1px;
   animation: fadeIn 1s;
+}
+
+.notification {
+  display: none;
+  z-index: 3;
+  background-color: #3d3d3d;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0 50px;
+  border-radius: 8px;
+}
+
+#smth-wrong {
+  border: 3px solid rgb(252, 71, 71);
+  border-top: none;
+}
+
+.notification-p {
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+  margin: 35px 0;
+}
+
+#smth-wrong p {
+  color:rgb(252, 71, 71);
+}
+
+#cross3 {
+  color:rgb(252, 71, 71);
 }
 
 #favorites-nav {

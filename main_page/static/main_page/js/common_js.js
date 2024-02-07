@@ -43,7 +43,7 @@ function addingFav(heartId, section) {
     const nameFavObject = document.getElementById('name' + favObjectId).textContent
     
     const url = heartImg.classList.contains('red') ? '/remove_from_favorites/' : '/add_to_favorites/'
-
+    
     $.ajax({
         url: url,
         type: 'post',
@@ -56,10 +56,10 @@ function addingFav(heartId, section) {
         success: function(data) {
             heartImg.classList.toggle('black')
             heartImg.classList.toggle('red')
-            alert(data.status)
         },
         error: function(xhr, status, error) {
-            alert(status)
+            const smthWrong = document.getElementById('smth-wrong')
+            smthWrong.style.display = 'block'
         }
     })
 }
