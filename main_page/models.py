@@ -12,6 +12,7 @@ class Rating(models.Model):
 class FavObject(models.Model):
     fav_object_id = models.AutoField(primary_key=True)
     number_fav_object = models.IntegerField(null=False)
+    vuz = models.CharField(max_length=300, default='none')
     name_fav_object = models.TextField()
     section = models.CharField(max_length=100)
 
@@ -22,6 +23,6 @@ class FavObject(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     favorites = models.ManyToManyField(FavObject)
-
+    
     class Meta:
         db_table = 'user_and_favorites_bd'

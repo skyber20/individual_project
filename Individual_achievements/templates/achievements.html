@@ -34,7 +34,7 @@
                     <span id="number{{forloop.parentloop.counter}}{{item.id}}" style="display: none;">{{item.id}}</span>
                     <span id="name{{forloop.parentloop.counter}}{{item.id}}" style="display: none;">{{item.type_of_event}}</span>
                     {% include 'data_from_bd.html' %}
-                    <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}', 'vuzes')">
+                    <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}', 'vuzes', '{{table_name}}')">
                       <i class="fas fa-heart {% if item.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
                     </button>
                   </div>
@@ -45,9 +45,7 @@
         </div>
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static 'achievements/js/individual_for_vuz.js' %}"></script>
-    <script src="{% static 'main_page/js/common_js.js' %}"></script>
   </body>
 </html>
 

@@ -53,13 +53,15 @@ def add_to_favorites(request):
         number_fav_object = request.POST.get('number_fav_object')
         name_fav_object = request.POST.get('name_fav_object')
         section = request.POST.get('section')
+        vuz = request.POST.get('vuz')
 
         fav_obj, created = FavObject.objects.get_or_create(
             pk=fav_object_id,
             defaults={
                 'number_fav_object': number_fav_object,
                 'name_fav_object': name_fav_object,
-                'section': section
+                'section': section,
+                'vuz': vuz
             }
         )
 
@@ -97,9 +99,17 @@ def remove_from_favorites(request):
 def show_favorites(request):
     if request.method == 'POST':
         razdel = request.POST.get('section')
-        user_profile = UserProfile.objects.get(user=request.user)
-        favorites = user_profile.favorites.filter(section=razdel)
-        favorites_data = [{'fav_id': fav.fav_object_id, 'fav_name': fav.name_fav_object} for fav in favorites]
+        try:
+            user_profile = UserProfile.objects.get(user=request.user)
+            favorites = user_profile.favorites.filter(section=razdel)
+
+            if razdel == 'vuzes':
+                favorites_data = [{'fav_vuz': fav.vuz, 'fav_name': fav.name_fav_object} for fav in favorites]
+            else:
+                favorites_data = [{'fav_name': fav.name_fav_object} for fav in favorites]
+        except UserProfile.DoesNotExist:
+            return JsonResponse({'status': 'Пользователь еще не добавил данные'})
+
         print(favorites_data)
         return JsonResponse({'favorites': favorites_data})
     else:
