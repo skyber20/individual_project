@@ -109,8 +109,6 @@ def show_favorites(request):
                 favorites_data = [{'fav_name': fav.name_fav_object} for fav in favorites]
         except UserProfile.DoesNotExist:
             return JsonResponse({'status': 'Пользователь еще не добавил данные'})
-
-        print(favorites_data)
         return JsonResponse({'favorites': favorites_data})
     else:
         return JsonResponse({'status': 'fail'})

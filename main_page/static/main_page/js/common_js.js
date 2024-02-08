@@ -74,12 +74,24 @@ function showFavorites(razdel) {
         success: function(data) {
             const sectionContent = document.getElementById('section-content')
             sectionContent.innerHTML = ''
-            data.favorites.forEach(function(favorite) {
-                const favP = document.createElement('p')
-                favP.className = 'fav-p'
-                favP.textContent = favorite.fav_vuz + ' ' + favorite.fav_name
-                sectionContent.appendChild(favP)
-            })
+            if (data.favorites.length) {
+                data.favorites.forEach(function(favorite) {
+                    const newDiv = document.createElement('div')
+                    newDiv.className = 'favorite-object-block'
+                    const favP1 = document.createElement('p')
+                    const favP2 = document.createElement('p')
+                    favP1.textContent = favorite.fav_vuz
+                    favP2.textContent = favorite.fav_name
+                    newDiv.appendChild(favP1)
+                    newDiv.appendChild(favP2)
+                    sectionContent.appendChild(newDiv)
+                })
+            } else {
+                const p = document.createElement('p')
+                p.className = 'empty-data'
+                p.textContent = 'Здесь пока пусто'
+                sectionContent.appendChild(p)
+            }
         },
         error: function(xhr, status, error) {
             const smthWrong = document.getElementById('smth-wrong')

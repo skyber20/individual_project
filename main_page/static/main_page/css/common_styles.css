@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap");
 
 body {
+  background: #20212b;
   margin: 0;
   height: 100vh;
   padding: 0;
@@ -64,21 +65,18 @@ nav .btn {
   transition: all 0.3s;
 }
 
-nav .btn:hover {
-  color: #60e7aa;
-}
-
 .nav_a,
 .dropbtn {
   cursor: pointer;
   font-size: 18px;
   text-decoration: none;
   color: #fff;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 
-.nav_a:hover {
-  color: #60e7aa;
+.nav_a:hover,
+nav .btn:hover {
+  opacity: 0.55;
 }
 
 .dropdown {
@@ -142,7 +140,8 @@ nav .btn:hover {
   display: none;
   position: fixed;
   width: 60%;
-  height: 85%;
+  min-height: 90%;
+  max-height: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -166,6 +165,34 @@ favorites-panel {
   text-align: center;
   letter-spacing: 1px;
   animation: fadeIn 1s;
+}
+
+#section-content {
+  display: grid;
+  padding: 20px;
+  max-height: 470px;
+  overflow-y: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.favorite-object-block {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.favorite-object-block p:first-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.favorite-object-block p:last-child {
+  color: #666;
 }
 
 .notification {
@@ -218,10 +245,6 @@ favorites-panel {
   margin: 0 auto;
 }
 
-#section-content {
-  padding: 20px;
-}
-
 .fav-p {
   color: black;
 }
@@ -235,6 +258,13 @@ favorites-panel {
   left: 25px;
   bottom: 40px;
   transition: all 0.3s;
+}
+
+.empty-data {
+  margin: 15px auto;
+  color: rgb(98, 98, 98);
+  font-size: 18px;
+  text-transform: uppercase;
 }
 
 #favorites_img {
