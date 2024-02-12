@@ -31,8 +31,6 @@
               <div class="content_bds disp_none" id="content_bd{{forloop.counter}}">
                 {% for item in queryset %}
                   <div class="content">
-                    <span id="number{{forloop.parentloop.counter}}{{item.id}}" style="display: none;">{{item.id}}</span>
-                    <span id="name{{forloop.parentloop.counter}}{{item.id}}" style="display: none;">{{item.type_of_event}}</span>
                     {% include 'data_from_bd.html' %}
                     <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}', 'vuzes', '{{table_name}}')">
                       <i class="fas fa-heart {% if item.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>

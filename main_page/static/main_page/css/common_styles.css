@@ -76,8 +76,13 @@ nav .btn {
 
 .nav_a:hover,
 nav .btn:hover {
-  opacity: 0.55;
+  opacity: 0.5;
 }
+
+.nav_a.active {
+  opacity: 0.5;
+}
+
 
 .dropdown {
   position: relative;
@@ -157,7 +162,7 @@ favorites-panel {
 #main-span-fav {
   display: block;
   background: -webkit-linear-gradient(left, #3498db, #9b59b6, #e67e22);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
   font-size: 32px;
@@ -180,10 +185,16 @@ favorites-panel {
 }
 
 .favorite-object-block {
+  cursor: pointer;
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 10px;
   background-color: #fff;
+  transition: all 0.3s;
+}
+
+.favorite-object-block:hover {
+  background-color: #c9c9c9;
 }
 
 .favorite-object-block p:first-child {

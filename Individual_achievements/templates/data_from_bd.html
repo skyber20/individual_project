@@ -1,7 +1,7 @@
 <div class="part-of-data">
-  <h1><span>№: {{item.id}}</span></h1>
+  <h1 id="{{forloop.parentloop.counter}}{{item.id}}"><span>№: {{item.id}}</span></h1>
   <h2><span>Вид мероприятия: {{item.event|default:"нет информации"}}</span></h2>
-  <h3><span>Мероприятие: {{item.type_of_event|default:"нет информации"}}</span></h3>
+  <h3 id="name{{forloop.parentloop.counter}}{{item.id}}"><span>Мероприятие: {{item.type_of_event|default:"нет информации"}}</span></h3>
   <p>условия добавления баллов: {{item.conditions_for_adding|default:"нет информации"}}</p>
   <ul>
     <li>добавленные баллы участникам: {{item.adding_points_uchastnik|default:"нет информации"}}</li>

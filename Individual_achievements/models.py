@@ -34,3 +34,27 @@ class Mifi(CommonTable):
 
     def __str__(self):
         return 'mifi_bd'
+    
+
+class Baumanka(CommonTable):
+    class Meta:
+        db_table = 'baumanka_bd'
+
+    def __str__(self):
+        return 'baumanka_bd'
+    
+
+class HighEconomicShool(CommonTable):
+    class Meta:
+        db_table = 'high_economic_school_bd'
+
+    def __str__(self):
+        return 'high_economic_school_bd'
+    
+
+class FU(CommonTable):
+    class Meta:
+        db_table = 'FU_bd'
+
+    def __str__(self):
+        return 'FU_bd'

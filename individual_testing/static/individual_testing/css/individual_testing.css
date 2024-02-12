@@ -178,7 +178,7 @@
 
 #resultH2 {
   background: -webkit-linear-gradient(left, #3498db, #9b59b6, #e67e22);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
   font-size: 32px;

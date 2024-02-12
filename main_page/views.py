@@ -49,14 +49,14 @@ def user_rated(request):
 @login_required
 def add_to_favorites(request):
     if request.method == 'POST':
-        fav_object_id = request.POST.get('fav_object_id')
         number_fav_object = request.POST.get('number_fav_object')
         name_fav_object = request.POST.get('name_fav_object')
         section = request.POST.get('section')
         vuz = request.POST.get('vuz')
 
         fav_obj, created = FavObject.objects.get_or_create(
-            pk=fav_object_id,
+            number_fav_object=number_fav_object,
+            section=section,
             defaults={
                 'number_fav_object': number_fav_object,
                 'name_fav_object': name_fav_object,
@@ -80,11 +80,11 @@ def add_to_favorites(request):
 @login_required
 def remove_from_favorites(request):
     if request.method == 'POST':
+        number_fav_object = request.POST.get('number_fav_object')
         section = request.POST.get('section')
-        fav_object_id = request.POST.get('fav_object_id')
 
         try:
-            fav_obj = FavObject.objects.get(pk=fav_object_id, section=section)
+            fav_obj = FavObject.objects.get(number_fav_object=number_fav_object, section=section)
             user_profile = UserProfile.objects.get(user=request.user)
             user_profile.favorites.remove(fav_obj)
             return JsonResponse({'status': 'Объект успешно удалён'})
@@ -104,11 +104,14 @@ def show_favorites(request):
             favorites = user_profile.favorites.filter(section=razdel)
 
             if razdel == 'vuzes':
-                favorites_data = [{'fav_vuz': fav.vuz, 'fav_name': fav.name_fav_object} for fav in favorites]
+                favorites_data = [{'number_fav_object': fav.number_fav_object, 'fav_vuz': fav.vuz, 'fav_name': fav.name_fav_object} for fav in favorites]
+                favorites_data = sorted(favorites_data, key=lambda x: (x['number_fav_object']))
             else:
-                favorites_data = [{'fav_name': fav.name_fav_object} for fav in favorites]
+                favorites_data = [{ 'number_fav_object': fav.number_fav_object, 'fav_name': fav.name_fav_object} for fav in favorites]
+                favorites_data = sorted(favorites_data, key=lambda x: x['number_fav_object'])
         except UserProfile.DoesNotExist:
-            return JsonResponse({'status': 'Пользователь еще не добавил данные'})
+            favorites_data = []
+            return JsonResponse({'favorites': favorites_data})
         return JsonResponse({'favorites': favorites_data})
     else:
         return JsonResponse({'status': 'fail'})
