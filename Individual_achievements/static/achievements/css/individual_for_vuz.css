@@ -76,6 +76,21 @@
   position: relative;
 }
 
+#btn-hide {
+  position: fixed;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ececec;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  top: 50%;
+  left: 12%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
 .fa-heart {
   z-index: 1;
   transition: all 0.3s;

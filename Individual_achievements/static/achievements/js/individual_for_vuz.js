@@ -1,22 +1,41 @@
+const contentBds = $('.content_bds')
+const arrs = $('.arrs')
+const btnHide = $('#btn-hide')
+let bd
+let arr
+
+
 function getDetails(button) {
-  let btnId = button.id
-  let bdId = btnId.replace("article_btn", "content_bd")
-  let arrId = btnId.replace("article_btn", "arr")
-
-  const bd = $('#' + bdId)
-  const arr = $('#' + arrId)
-
+  const btnId = button.id
+  const bdId = btnId.replace("article_btn", "content_bd")
+  const arrId = btnId.replace("article_btn", "arr")
+  
+  bd = $('#' + bdId)
+  arr = $('#' + arrId)
+  
   bd.slideToggle(500)
   arr.toggleClass('end_position')
-
-  const content_bds = $('.content_bds')
-  for (let i = 0; i < content_bds.length; i++) {
-    let content_bd = $(content_bds[i])
+  btnHide.toggleClass('disp_none')
+  
+  for (let i = 0; i < contentBds.length; i++) {
+    let content_bd = $(contentBds[i])
     if (content_bd.attr('id') != bdId && content_bd.is(':visible')) {
       arrIdNeeded = content_bd.attr('id').replace("content_bd", "arr")
       arrElem = $('#' + arrIdNeeded)
       content_bd.slideUp()
       arrElem.removeClass('end_position')
+      break
+    }
+  }
+  checkOpenContent()
+}
+
+
+window.checkOpenContent = function() {
+  const arrs = $('.arrs')
+  for (let i = 0; i < arrs.length; i++) {
+    if ($(arrs[i]).hasClass('end_position')) {
+      btnHide.removeClass('disp_none')
       break
     }
   }
@@ -36,4 +55,11 @@ function searchButtons() {
         bd.style.display = 'none'
     }
   }
+}
+
+
+function closeDetails() {
+  bd.slideToggle(500)
+  arr.toggleClass('end_position')
+  btnHide.toggleClass('disp_none')
 }
