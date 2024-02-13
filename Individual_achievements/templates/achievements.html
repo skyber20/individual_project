@@ -25,17 +25,20 @@
         <div class="blocks_data">
           {% for table_name, queryset in vuzes_data %}
             <article id="bd{{forloop.counter}}">
-              <button class="article_btns buttons" id="article_btn{{forloop.counter}}" onclick="getDetails(this)">
-                <img class="arrs" id="arr{{forloop.counter}}" src="{% static 'achievements/images/стрелка_вниз.png' %}" />
-                <span class="btn_text">{{table_name}}</span>
+              <button class="article_btns" id="article_btn{{forloop.counter}}" onclick="getDetails(this)">
+                <i class="fas fa-chevron-down arrs" id="arr{{forloop.counter}}"></i>
+                <span class>{{table_name}}</span>
               </button>
               <div class="content_bds disp_none" id="content_bd{{forloop.counter}}">
+                <div class="searchBoxContent">
+                  <div>
+                    <input type="text" class="searchInputContext" id="searchInput{{forloop.counter}}" placeholder="Введите мероприятие">
+                    <button class="submitValueBtn" onclick="getNameEvent('{{forloop.counter}}')"></button>
+                  </div>
+                </div>
                 {% for item in queryset %}
                   <div class="content">
                     {% include 'data_from_bd.html' %}
-                    <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}', 'vuzes', '{{table_name}}')">
-                      <i class="fas fa-heart {% if item.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
-                    </button>
                   </div>
                 {% endfor %}
               </div>
@@ -47,4 +50,3 @@
     <script src="{% static 'achievements/js/individual_for_vuz.js' %}"></script>
   </body>
 </html>
-

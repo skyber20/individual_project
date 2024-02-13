@@ -1,4 +1,4 @@
-<div class="part-of-data">
+<div class="part-of-data part{{forloop.parentloop.counter}}">
   <h1 id="{{forloop.parentloop.counter}}{{item.id}}"><span>№: {{item.id}}</span></h1>
   <h2><span>Вид мероприятия: {{item.event|default:"нет информации"}}</span></h2>
   <h3 id="name{{forloop.parentloop.counter}}{{item.id}}"><span>Мероприятие: {{item.type_of_event|default:"нет информации"}}</span></h3>
@@ -9,4 +9,7 @@
     <li>добавленные баллы победителям: {{item.adding_points_pobeditel|default:"нет информации"}}</li>
     <li>добавленные баллы лауреатам: {{item.adding_points_laureat|default:"нет информации"}}</li>
   </ul>
+  <button class="adding-fav" id="adding-fav{{forloop.parentloop.counter}}{{item.id}}" onclick="addingFav('heart{{forloop.parentloop.counter}}{{item.id}}', 'vuzes', '{{table_name}}')">
+    <i class="fas fa-heart {% if item.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.parentloop.counter}}{{item.id}}"></i>
+  </button>
 </div>

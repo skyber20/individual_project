@@ -4,8 +4,8 @@ from main_page.models import UserProfile
 
 
 def individual_achievements_show(request):
-    translations = {'mipt': 'МФТИ', 'mgu': 'МГУ', 'mifi': 'МИФИ', 'baumanka': 'Бауманка', 
-                    'HighEconomicShool': 'ВШЭ', 'FU': 'ФУ'}
+    translations = {'mipt': 'МФТИ', 'mgu': 'МГУ', 'mifi': 'МИФИ', 'baumanka': 'МГТУ им Н.Э. Баумана', 
+                    'HighEconomicShool': 'Высшая школа экономики', 'FU': 'ФУ при правительстве РФ'}
     sorted_table_names = sorted(translations, key=translations.get)
     vuzes_data = []
     cnt = 1
