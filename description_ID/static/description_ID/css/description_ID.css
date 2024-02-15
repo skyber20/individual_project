@@ -28,7 +28,7 @@
 }
 
 .nav-item:hover {
-  color: #60e7aa;
+  opacity: 0.5;
 }
 
 #container-content {

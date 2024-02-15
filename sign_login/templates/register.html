@@ -1,0 +1,105 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'sign_login/css/sign_login.css' %}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <a href="{% url 'main_page' %}" class="link" id="main-link">На главную</a>
+      <h1>Регистрация</h1>
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-danger" role="alert">{{ message }}</div>
+      {% endfor %} {% endif %}
+      <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="first_name">Имя:</label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            maxlength="20"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Фамилия:</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            maxlength="30"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Почта:</label>
+          <input type="email" id="email" name="email" maxlength="35" required />
+        </div>
+        <div class="form-group password-group">
+          <label for="password1">Пароль:</label>
+          <input
+            type="password"
+            id="password1"
+            name="password1"
+            minlength="8"
+            maxlength="20"
+            required
+          />
+          <button
+            type="button"
+            class="toggle-button-visible"
+            id="toggle-button-visible1"
+          >
+            👁️
+          </button>
+        </div>
+        <div class="form-group password-group">
+          <label for="password2">Подтвердите пароль:</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            minlength="8"
+            maxlength="20"
+            required
+          />
+          <button
+            type="button"
+            class="toggle-button-visible"
+            id="toggle-button-visible2"
+          >
+            👁️
+          </button>
+        </div>
+        <div class="form-group">
+          <label id="code-admin-input" for="code_admin_input">Код администратора:</label>
+          <input
+            type="password"
+            id="password3"
+            name="code_admin_input"
+            maxlength="12"
+          />
+          <button
+            type="button"
+            class="toggle-button-visible"
+            id="toggle-button-visible3"
+          >
+            👁️
+          </button>
+        </div>
+        <input type="submit" value="Регистрация" id="send-btn" />
+      </form>
+      <a href="{% url 'login' %}" class="link" id="login-link"
+        >Уже есть аккаунт? Войдите тут</a
+      >
+    </div>
+    <script src="{% static 'sign_login/js/sign_login.js' %}"></script>
+  </body>
+</html>

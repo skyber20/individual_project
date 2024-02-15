@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static 'main_page/css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/user_profile.css' %}">
+</head>
+<body>
+    {% include 'common_html.html' %}
+    <div id="container">
+        <h1 id="h1-profile">ваш профиль</h1>
+        <h2 id="user-status">Статус</h2>
+        <div id="common-user-info">
+        </div>
+        <a id="btn-to-exit"href="{% url 'logout' %}">Выйти</a>
+    </div>
+</body>
+</html>

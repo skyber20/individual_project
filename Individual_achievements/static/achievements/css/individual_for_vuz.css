@@ -130,8 +130,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
-  height: 65px;
+  width: 320px;
+  height: 55px;
   background-color: #F9F0DA;
   border-radius: 25px;
   border: 3px solid rgba(225, 61, 61, 0.451);
@@ -163,7 +163,7 @@
   transform: translateY(-50%);
   background-color: rgba(225, 61, 61, 0.451);
   border: none;
-  width: 65px;
+  width: 58px;
   height: calc(100% + 2px);
   cursor: pointer;
   border-radius: 0;
@@ -175,7 +175,7 @@
 .submitValueBtn::before {
   content: "\f002";
   font-family: FontAwesome;
-  font-size: 16px;
+  font-size: 18px;
   color: #F9F0DA;
 }
 

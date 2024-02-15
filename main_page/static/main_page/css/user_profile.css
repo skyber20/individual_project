@@ -1,0 +1,45 @@
+#container {
+    padding-bottom: 65px;
+}
+
+#h1-profile {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 28px;
+    text-align: center;
+}
+
+#user-status {
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#btn-to-exit {
+    position: absolute;
+    right: 50%;
+    bottom: 20px;
+    transform: translateX(+50%);
+    outline: none;
+    background-color: #F6F8FA;
+    text-align: center;
+    padding: 10px 25px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: #CF222E;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#btn-to-exit:hover {
+    color: #F6F8FA;
+    background-color: #CF222E;
+}

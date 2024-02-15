@@ -132,8 +132,9 @@ function showFavorites(razdel) {
       }
     },
     error: function (xhr, status, error) {
-      const smthWrong = document.getElementById("smth-wrong");
-      smthWrong.style.display = "block";
+      const smthWrong = document.getElementById("smth-wrong")
+      smthWrong.style.display = 'block'
+      closeWindow('favorites-site')
     },
   });
 }

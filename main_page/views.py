@@ -28,6 +28,10 @@ def show_faq(request):
     return render(request, 'faq.html')
 
 
+def show_user_profile(request):
+    return render(request, 'user_profile.html')
+
+
 @csrf_exempt
 @login_required
 def user_rated(request):

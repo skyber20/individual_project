@@ -14,27 +14,31 @@
       <a href="{% url 'main_page' %}" class="link" id="main-link">На главную</a>
       <h1>Вход</h1>
       {% if messages %} {% for message in messages %}
-      <div
-        class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
-      >
-        {{ message }}
-      </div>
+      <div class="alert alert-danger" role="alert">{{ message }}</div>
       {% endfor %} {% endif %}
-      <form method="POST">
+      <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         <div class="form-group">
-          <label for="username">Имя пользователя:</label>
-          <input type="text" id="username" name="username" required />
+          <label for="email">Почта:</label>
+          <input type="email" id="email" name="email" required />
         </div>
         <div class="form-group">
           <label for="password1">Пароль:</label>
           <input type="password" id="password1" name="password1" required />
+          <button
+            type="button"
+            class="toggle-button-visible"
+            id="toggle-button-visible1"
+          >
+            👁️
+          </button>
         </div>
         <input type="submit" value="Войти" id="send-btn" />
-        <a href="{% url 'sign_up' %}" class="link" id="login-link"
-          >Ещё нет аккаунта? Зарегистрируетесь тут</a
-        >
       </form>
+      <a href="{% url 'register' %}" class="link" id="login-link"
+        >Ещё нет аккаунта? Зарегистрируетесь тут
+      </a>
     </div>
+    <script src="{% static 'sign_login/js/sign_login.js' %}"></script>
   </body>
 </html>

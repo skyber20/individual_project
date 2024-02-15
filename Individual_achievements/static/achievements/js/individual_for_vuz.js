@@ -35,6 +35,15 @@ function getNameEvent(searchInputId) {
 }
 
 
+$(document).ready(function(){
+  $('.searchInputContext').focus(function(){
+    $('.searchBoxContent').css('box-shadow', '0 0 20px rgba(225, 61, 61, 0.451)')
+  }).blur(function(){
+    $('.searchBoxContent').css('box-shadow', 'none');
+  });
+});
+
+
 function getDetails(button) {
   const btnId = button.id
   const bdId = btnId.replace("article_btn", "content_bd")
