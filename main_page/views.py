@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User, Group
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -29,7 +30,16 @@ def show_faq(request):
 
 
 def show_user_profile(request):
-    return render(request, 'user_profile.html')
+    user = User.objects.get(username=request.user)
+    name_group = user.groups.all().values_list('name', flat=True)[0]
+    context = {'status': 'Посетитель', 'user_info': user}
+
+    if name_group == 'Admins':
+        context['status'] = 'Админ'
+    elif name_group == 'Directors':
+        context['status'] = 'Главный'
+
+    return render(request, 'user_profile.html', context=context)
 
 
 @csrf_exempt
@@ -119,3 +129,25 @@ def show_favorites(request):
         return JsonResponse({'favorites': favorites_data})
     else:
         return JsonResponse({'status': 'fail'})
+    
+
+@csrf_exempt
+def save_user_data(request):
+    if request.method == 'POST':
+        new_name = request.POST.get('new_name')
+        if len(new_name) >= 2:
+            user = User.objects.get(username=request.user)
+            which_name = request.POST.get('which_name')
+            if which_name == 'first':
+                user.first_name = new_name
+            else:
+                user.last_name = new_name
+            user.save()
+            
+            return JsonResponse({'new_name': new_name})
+        else:
+            previous_name = request.POST.get('previous_name')
+            return JsonResponse({'new_name': previous_name, 'status': 'Количество символов должно быть не менее 2 символов'})
+    else:
+        return JsonResponse({'status': 'Ошибка'})
+            

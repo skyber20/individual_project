@@ -17,6 +17,7 @@ urlpatterns = [
     path('add_to_favorites/', add_to_favorites, name='add_to_favorites'),
     path('remove_from_favorites/', remove_from_favorites, name='remove_from_favorites'),
     path('show_favorites/', show_favorites, name='show_favorites'),
+    path('save_user_data/', save_user_data, name='save_user_data'),
     path('individual_achievements_vuz/', individual_achievements_show, name='individual_achievements_vuz'),
     path('description_ID/', show_description_ID, name='description_ID'),
     path('give_description/', give_description_view, name='give_description'),

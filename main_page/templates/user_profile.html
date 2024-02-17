@@ -11,11 +11,30 @@
 <body>
     {% include 'common_html.html' %}
     <div id="container">
+        {% csrf_token %}
         <h1 id="h1-profile">ваш профиль</h1>
-        <h2 id="user-status">Статус</h2>
+        <h2 id="user-status">{{ status }}</h2>
         <div id="common-user-info">
+            <div id="user-first-name">
+                <span>Имя: <span id="first-name-text">{{ user.first_name }}</span></span>
+                <button class="edit-button" id="edit-button-first" onclick="editUserData('edit-field-first')"><i class="fas fa-pencil-alt"></i></button>
+                <div id="edit-field-first" class="edit-field" style="display: none;">
+                    <input type="text" id="first-name-input" value="{{ user.first_name }}">
+                    <button class="save-button" id="save-button-first" onclick="saveUserData('first-name-input', 'first-name-text')"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            <div id="user-last-name">
+                <span>Фамилия: <span id="last-name-text">{{ user.last_name }}</span></span>
+                <button class="edit-button" id="edit-button-last" onclick="editUserData('edit-field-last', )"><i class="fas fa-pencil-alt"></i></button>
+                <div id="edit-field-last" class="edit-field" style="display: none;">
+                    <input type="text" id="last-name-input" value="{{ user.last_name }}">
+                    <button class="save-button" id="save-button-last" onclick="saveUserData('last-name-input', 'last-name-text')"><i class="fas fa-check"></i></button>
+                </div>
+            </div>
+            <p id="user-email">Почта: {{ user.email }}</p>
         </div>
-        <a id="btn-to-exit"href="{% url 'logout' %}">Выйти</a>
+        <a id="btn-to-exit"href="{% url 'logout' %}">Выйти из аккаунта</a>
     </div>
+    <script src="{% static 'main_page/js/common_js.js' %}"></script>
 </body>
 </html>

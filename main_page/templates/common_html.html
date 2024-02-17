@@ -14,8 +14,8 @@
             <li><button class="btn"><a class="nav_a {% if request.resolver_match.url_name == 'calculator' %}active{% endif %}" href="{% url 'calculator' %}">Калькулятор ИД</a></button></li>            
             {% if first_name %}
             <li id="user-li">
-                <div class="dropdown">
-                    <button class="dropbtn btn">{{ first_name }}</button>
+                <div class="dropdown ">
+                    <button class="dropbtn {% if request.resolver_match.url_name == 'user_profile' %}active{% endif %} btn">{{ first_name }}</button>
                     <i class="fa fa-chevron-down arrDown"></i>
                     <div class="dropdown-content">
                         <a href="{% url 'user_profile' %}">Профиль</a>
