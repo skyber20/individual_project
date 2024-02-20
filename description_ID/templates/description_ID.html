@@ -22,9 +22,10 @@
                 <div class="nav-item" onclick="getContent('Другое')">Другое</div>
             </div>
         </div>
+        {% csrf_token %}
         <div id="container-content">
             <div id="content">
-                {{ content }}
+                <!-- здесь будут мероприятия -->
             </div>
         </div>                
     </div>

@@ -38,7 +38,7 @@
 
 #content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Увеличиваем минимальную ширину */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -53,10 +53,8 @@
   margin: 20px;
   padding: 20px;
   transition: transform 0.3s ease-in-out;
-  overflow-wrap: break-word; /* Добавляем перенос слов */
+  overflow-wrap: break-word; 
 }
-
-
 
 .card:hover {
   transform: scale(1.03);
@@ -90,13 +88,14 @@
   display: block;
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   border: none;
   border-radius: 5px;
   color: #fff;
   background-color: #007bff;
   text-align: center;
   font-size: 16px;
+  margin-bottom: 10px;
   transition: background-color 0.3s ease;
   cursor: pointer;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -104,8 +103,4 @@
 
 .card button:hover {
   background-color: #0056b3;
-}
-
-.card button:last-child {
-  margin-bottom: 10px;
 }

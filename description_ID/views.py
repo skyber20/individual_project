@@ -1,19 +1,21 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from .models import DescriptionPerechen
+
 
 def show_description_ID(request):
     return render(request, 'description_ID.html')
 
-def give_description_view(request):
+
+@csrf_exempt
+def give_description(request):
     if request.method == 'POST':
         section = request.POST.get('section')
         if section == 'Перечневые':
-            descriptions = DescriptionPerechen.objects.values()
-            content = "".join(f'<div class="card"><h2>{desc["name_event"]}</h2><div class="buttons-block"><p>Уровень: {desc["level"]}</p>\
-                  <button onclick="location.href=\'#\'">Подробнее</button><button onclick="location.href=\'#\'">На сайт мероприятия</button></div></div>' for desc in descriptions)
-        elif section == 'Другое':
-            content = f'<p id="empty-p">Здесь пока пусто</p>'
+            events = DescriptionPerechen.objects.all()
         else:
-            content = ''
-        return JsonResponse({'content': content})
+            events = ['Здесь пока пусто']
+        return render(request, 'description_from_bd.html', {'events': events})
+    else:
+        return JsonResponse({'error': 'Произоошла непредвиденная ошибка'})

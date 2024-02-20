@@ -1,0 +1,12 @@
+{% for event in events %}
+<div class="card">
+  <h2>{{ event.name_event }}</h2>
+  <div class="buttons-block">
+    <p>Уровень: {{ event.level }}</p>
+    <button>На сайт мероприятия</button>
+    <button class="adding-fav">
+        {% if event.is_favorite %}Убрать из избранного{% else %}Добавить в избранное{% endif %}
+    </button>
+  </div>
+</div>
+{% endfor %}

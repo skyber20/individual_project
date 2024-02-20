@@ -1,20 +1,3 @@
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        let cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            let cookie = cookies[i].trim();
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
-
-const csrftoken = getCookie('csrftoken');
-
 function getContent(section) {
     $.ajax({
         type: 'POST',
@@ -22,13 +5,14 @@ function getContent(section) {
         data: {
             'section': section,
         },
-        headers: {
-            'X-CSRFToken': csrftoken
-        },
-        success: function(response) {
-            $('#content').html(response.content);
+        success: function(events) {
             const containerDescription = document.getElementById('container-content')
+            const content = document.getElementById('content')
+            content.innerHTML = events
             containerDescription.style.display = 'block'
+        },
+        error: function(error) {
+            alert(error)
         }
     });
 }

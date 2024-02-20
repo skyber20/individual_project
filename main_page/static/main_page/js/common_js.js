@@ -170,11 +170,14 @@ function saveUserData(newName, previousName) {
     },
     success: function(data) {
       let editFieldClose, nameTextOpen, editBtnOpen
-
+      
       if (whichName == 'first') {
+        const nameHere = document.getElementById('name-here')
         editFieldClose = document.getElementById('edit-field-first')
         nameTextOpen = document.getElementById('first-name-text')
         editBtnOpen = document.getElementById('edit-button-first')
+
+        nameHere.textContent = data['new_name']
       } else {
         editFieldClose = document.getElementById('edit-field-last')
         nameTextOpen = document.getElementById('last-name-text')
@@ -185,10 +188,6 @@ function saveUserData(newName, previousName) {
       editFieldClose.style.display = 'none'
       nameTextOpen.style.display = 'inline-block'
       editBtnOpen.style.display = 'inline-block'
-
-      if (data['status']) {
-        alert(data['status'])
-      }
     },
     error: function(xhr, status, error) {
       console.log(status)

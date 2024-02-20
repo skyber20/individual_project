@@ -147,7 +147,7 @@ def save_user_data(request):
             return JsonResponse({'new_name': new_name})
         else:
             previous_name = request.POST.get('previous_name')
-            return JsonResponse({'new_name': previous_name, 'status': 'Количество символов должно быть не менее 2 символов'})
+            return JsonResponse({'new_name': previous_name})
     else:
         return JsonResponse({'status': 'Ошибка'})
             

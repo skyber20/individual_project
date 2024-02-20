@@ -6,6 +6,36 @@
   border-bottom-right-radius: 0;
 }
 
+#telegram-calculator {
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  top: 17%;
+  right: 30px;
+  padding: 18px 20px;
+  background: #3498db;
+  font-size: 16px;
+  letter-spacing: 1.1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+#telegram-calculator i {
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+
+#telegram-calculator:hover {
+  background: #63b9f3;
+}
+
 #nav-post {
   background-color: rgba(0, 0, 0, 0.533);
   padding: 20px;
