@@ -12,7 +12,7 @@ class Rating(models.Model):
 class FavObject(models.Model):
     fav_object_id = models.AutoField(primary_key=True)
     number_fav_object = models.IntegerField(null=False, default=0)
-    vuz = models.CharField(max_length=300, default='none')
+    vuz_or_razdel = models.CharField(max_length=300, default='none')
     name_fav_object = models.TextField()
     section = models.CharField(max_length=100)
 

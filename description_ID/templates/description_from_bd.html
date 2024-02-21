@@ -1,11 +1,11 @@
 {% for event in events %}
 <div id="card{{forloop.counter}}" class="card">
-  <h2>{{ event.name_event }}</h2>
+  <h2 id="name{{forloop.counter}}">{{ event.name_event }}</h2>
   <div class="buttons-block">
     <p>Уровень: {{ event.level }}</p>
     <button>На сайт мероприятия</button>
-    <button id="p{{forloop.counter}}">
-        {% if event.is_favorite %}Убрать из избранного{% else %}Добавить в избранное{% endif %}
+    <button class="adding-fav" id="{{forloop.counter}}" onclick="actionWithFavorite(this, 'description', 'Перечневые')">
+      <i class="fas fa-heart {% if event.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.counter}}"></i>
     </button>
   </div>
 </div>

@@ -32,6 +32,19 @@ body {
   padding: 10px;
 }
 
+.fa-heart {
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
 #nav {
   display: flex;
   justify-content: space-between;

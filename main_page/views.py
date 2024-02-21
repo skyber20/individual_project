@@ -63,10 +63,11 @@ def user_rated(request):
 @login_required
 def add_to_favorites(request):
     if request.method == 'POST':
+        print(1)
         number_fav_object = request.POST.get('number_fav_object')
         name_fav_object = request.POST.get('name_fav_object')
         section = request.POST.get('section')
-        vuz = request.POST.get('vuz')
+        vuz_or_razdel = request.POST.get('vuz_or_razdel')
 
         fav_obj, created = FavObject.objects.get_or_create(
             number_fav_object=number_fav_object,
@@ -75,7 +76,7 @@ def add_to_favorites(request):
                 'number_fav_object': number_fav_object,
                 'name_fav_object': name_fav_object,
                 'section': section,
-                'vuz': vuz
+                'vuz_or_razdel': vuz_or_razdel
             }
         )
 
@@ -112,16 +113,16 @@ def remove_from_favorites(request):
 @login_required
 def show_favorites(request):
     if request.method == 'POST':
-        razdel = request.POST.get('section')
+        section = request.POST.get('section')
         try:
             user_profile = UserProfile.objects.get(user=request.user)
-            favorites = user_profile.favorites.filter(section=razdel)
+            favorites = user_profile.favorites.filter(section=section)
 
-            if razdel == 'vuzes':
-                favorites_data = [{'number_fav_object': fav.number_fav_object, 'fav_vuz': fav.vuz, 'fav_name': fav.name_fav_object} for fav in favorites]
+            if section == 'vuzes':
+                favorites_data = [{'number_fav_object': fav.number_fav_object, 'fav_vuz': fav.vuz_or_razdel, 'fav_name': fav.name_fav_object} for fav in favorites]
                 favorites_data = sorted(favorites_data, key=lambda x: (x['number_fav_object']))
             else:
-                favorites_data = [{ 'number_fav_object': fav.number_fav_object, 'fav_name': fav.name_fav_object} for fav in favorites]
+                favorites_data = [{'number_fav_object': fav.number_fav_object, 'fav_razdel': fav.vuz_or_razdel, 'fav_name': fav.name_fav_object} for fav in favorites]
                 favorites_data = sorted(favorites_data, key=lambda x: x['number_fav_object'])
         except UserProfile.DoesNotExist:
             favorites_data = []

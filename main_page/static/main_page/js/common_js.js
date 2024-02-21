@@ -37,90 +37,101 @@ function closeWindow(windowToClose) {
 }
 
 
-function addingFav(heartId, razdel, vuz = "none") {
-  const heartImg = document.getElementById(heartId)
-  const numberFavObject = heartId.replace("heart", "")
-  const nameFavObject = document.getElementById(
-    "name" + numberFavObject
-  ).textContent;
-  const url = heartImg.classList.contains("red")
-    ? "/remove_from_favorites/"
-    : "/add_to_favorites/"
+function actionWithFavorite(Id, section, vuz_or_razdel) {
+  const mainId = Id.id
+  const heart = document.getElementById('heart' + mainId)
+  const name = document.getElementById('name' + mainId).textContent
+  const url = heart.classList.contains('black') ? '/add_to_favorites/' : '/remove_from_favorites/'
 
   $.ajax({
     url: url,
-    type: "post",
+    type: 'post',
     data: {
-      number_fav_object: parseInt(numberFavObject),
-      name_fav_object: nameFavObject,
-      section: razdel,
-      vuz: vuz,
+      number_fav_object: parseInt(mainId),
+      name_fav_object: name,
+      section: section,
+      vuz_or_razdel: vuz_or_razdel,
     },
-    success: function (data) {
-      heartImg.classList.toggle("black")
-      heartImg.classList.toggle("red")
-      showFavorites(razdel);
+    success: function(data) {
+      heart.classList.toggle('black')
+      heart.classList.toggle('red')
     },
-    error: function (xhr, status, error) {
+    error: function(xhr, status, error) {
       const smthWrong = document.getElementById("smth-wrong")
       smthWrong.style.display = "block"
-    },
-  });
+    }
+  })
 }
 
-function showFavorites(razdel) {
+
+function showFavorites(section) {
   $.ajax({
-    url: "/show_favorites/",
-    type: "post",
+    url: '/show_favorites/',
+    type: 'post',
     data: {
-      section: razdel,
+      'section': section
     },
-    success: function (data) {
+    success: function(data) {
       const sectionContent = document.getElementById("section-content")
       sectionContent.innerHTML = ""
+      
       if (data.favorites.length) {
         data.favorites.forEach(function (favorite) {
+          let url
           const newDiv = document.createElement("div")
           newDiv.className = "favorite-object-block"
 
           const favP1 = document.createElement("p")
           const favP2 = document.createElement("p")
-          favP1.textContent = "Вуз: " + favorite.fav_vuz
+          if (favorite.fav_vuz) {
+            favP1.textContent = "Вуз: " + favorite.fav_vuz
+            url = document.getElementById("achievement-url").dataset.url
+          } else {
+            favP1.textContent = "Раздел: " + favorite.fav_razdel
+            url = document.getElementById("description-url").dataset.url
+          }
           favP2.textContent = favorite.fav_name
 
           newDiv.appendChild(favP1)
           newDiv.appendChild(favP2)
 
-          const url = document.getElementById("achievement-url").dataset.url
-
-          newDiv.addEventListener("click", function (event) {
-            event.preventDefault()
-            const contentBds = document.getElementsByClassName("content_bds")
-
-            for (let i = 0; i < contentBds.length; i++) {
-              const contentBd = contentBds[i]
-              const arrElem = document.getElementById(
-                contentBd.id.replace("content_bd", "arr")
-              );
-              const numberFavObject = document.getElementById(
-                favorite.number_fav_object
-              );
-
-              if (numberFavObject && contentBd.contains(numberFavObject)) {
-                contentBd.style.display = "block"
-                arrElem.classList.add("end_position")
-                bd = $(`#${contentBd.id}`)
-                arr = $(`#${arrElem.id}`)
-              } else {
-                contentBd.style.display = "none"
-                arrElem.classList.remove("end_position")
+          if (favorite.fav_vuz) {
+            newDiv.addEventListener("click", function (event) {
+              event.preventDefault()
+              const contentBds = document.getElementsByClassName("content_bds")
+  
+              for (let i = 0; i < contentBds.length; i++) {
+                const contentBd = contentBds[i]
+                const arrElem = document.getElementById(
+                  contentBd.id.replace("content_bd", "arr")
+                );
+                const numberFavObject = document.getElementById(
+                  favorite.number_fav_object
+                );
+  
+                if (numberFavObject && contentBd.contains(numberFavObject)) {
+                  contentBd.style.display = "block"
+                  arrElem.classList.add("end_position")
+                  bd = $(`#${contentBd.id}`)
+                  arr = $(`#${arrElem.id}`)
+                } else {
+                  contentBd.style.display = "none"
+                  arrElem.classList.remove("end_position")
+                }
               }
-            }
-
-            window.location.href = url + "#" + favorite.number_fav_object
-            closeWindow("favorites-site")
-            window.checkOpenContent()
-          })
+              
+              window.location.href = url + "#" + 'part' + favorite.number_fav_object
+              closeWindow("favorites-site")
+              window.checkOpenContent()
+            })
+          } else {
+            newDiv.addEventListener("click", function (event) {
+              event.preventDefault()
+              window.location.href = url + "#" + 'card' + favorite.number_fav_object
+              closeWindow("favorites-site")
+              window.checkOpenContent()
+            })
+          }
 
           sectionContent.appendChild(newDiv)
         })
@@ -131,12 +142,10 @@ function showFavorites(razdel) {
         sectionContent.appendChild(p)
       }
     },
-    error: function (xhr, status, error) {
-      const smthWrong = document.getElementById("smth-wrong")
-      smthWrong.style.display = 'block'
-      closeWindow('favorites-site')
-    },
-  });
+    error: function() {
+      //
+    }
+  })
 }
 
 

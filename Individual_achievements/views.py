@@ -22,5 +22,4 @@ def individual_achievements_show(request):
                 pass
         vuzes_data.append((translations[table_name], queryset))
         cnt += 1
-    print(vuzes_data)
     return render(request, 'achievements.html', {'vuzes_data': vuzes_data})

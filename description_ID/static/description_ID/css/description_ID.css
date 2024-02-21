@@ -56,10 +56,6 @@
   overflow-wrap: break-word; 
 }
 
-.card:hover {
-  transform: scale(1.03);
-}
-
 #empty-p {
   margin: 15px auto;
   color: rgba(222, 219, 219, 0.352);
@@ -88,7 +84,7 @@
   display: block;
   width: 100%;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 15px;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -103,4 +99,13 @@
 
 .card button:hover {
   background-color: #0056b3;
+}
+
+.card button i {
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.card button:hover i {
+  color: red;
 }
