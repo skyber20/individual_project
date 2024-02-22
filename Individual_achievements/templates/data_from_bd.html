@@ -1,4 +1,4 @@
-<div class="part-of-data" id="part{{forloop.parentloop.counter}}{{forloop.counter}}">
+<div class="part-of-data part{{forloop.parentloop.counter}}" id="part{{forloop.parentloop.counter}}{{forloop.counter}}">
   <h1><span>№: {{item.id}}</span></h1>
   <h2><span>Вид мероприятия: {{item.event|default:"нет информации"}}</span></h2>
   <h3 id="name{{forloop.parentloop.counter}}{{item.id}}"><span>Мероприятие: {{item.type_of_event|default:"нет информации"}}</span></h3>

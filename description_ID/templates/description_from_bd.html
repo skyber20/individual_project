@@ -4,7 +4,7 @@
   <div class="buttons-block">
     <p>Уровень: {{ event.level }}</p>
     <button>На сайт мероприятия</button>
-    <button class="adding-fav" id="{{forloop.counter}}" onclick="actionWithFavorite(this, 'description', 'Перечневые')">
+    <button id="{{forloop.counter}}" onclick="actionWithFavorite(this, 'description', 'Перечневые')">
       <i class="fas fa-heart {% if event.is_favorite %}red{% else %}black{% endif %}" id="heart{{forloop.counter}}"></i>
     </button>
   </div>

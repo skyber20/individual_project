@@ -1,16 +1,16 @@
-function getContent(section) {
+function getContent(razdel) {
     $.ajax({
         type: 'POST',
         url: '/give_description/',
         data: {
-            'section': section,
+            'razdel': razdel,
         },
         success: function(events) {
             const containerDescription = document.getElementById('container-content')
             const content = document.getElementById('content')
             content.innerHTML = ''
             containerDescription.style.display = 'block'
-            if (section == 'Перечневые') {
+            if (razdel == 'Перечневые') {
                 content.innerHTML = events
             } else {
                 const emptyP = document.createElement('p')

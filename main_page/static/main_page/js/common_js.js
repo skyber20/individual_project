@@ -55,6 +55,7 @@ function actionWithFavorite(Id, section, vuz_or_razdel) {
     success: function(data) {
       heart.classList.toggle('black')
       heart.classList.toggle('red')
+      showFavorites(section)
     },
     error: function(xhr, status, error) {
       const smthWrong = document.getElementById("smth-wrong")
@@ -95,6 +96,7 @@ function showFavorites(section) {
           newDiv.appendChild(favP1)
           newDiv.appendChild(favP2)
 
+
           if (favorite.fav_vuz) {
             newDiv.addEventListener("click", function (event) {
               event.preventDefault()
@@ -127,9 +129,12 @@ function showFavorites(section) {
           } else {
             newDiv.addEventListener("click", function (event) {
               event.preventDefault()
-              window.location.href = url + "#" + 'card' + favorite.number_fav_object
-              closeWindow("favorites-site")
-              window.checkOpenContent()
+              window.location.href = url
+
+              window.addEventListener('load', function() {
+                window.location.href = url + "#" + 'card' + favorite.number_fav_object
+                closeWindow("favorites-site")
+              })
             })
           }
 
@@ -143,7 +148,9 @@ function showFavorites(section) {
       }
     },
     error: function() {
-      //
+      const smthWrong = document.getElementById("smth-wrong")
+      smthWrong.style.display = 'block'
+      closeWindow('favorites-site')
     }
   })
 }

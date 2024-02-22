@@ -63,7 +63,6 @@ def user_rated(request):
 @login_required
 def add_to_favorites(request):
     if request.method == 'POST':
-        print(1)
         number_fav_object = request.POST.get('number_fav_object')
         name_fav_object = request.POST.get('name_fav_object')
         section = request.POST.get('section')
@@ -120,14 +119,13 @@ def show_favorites(request):
 
             if section == 'vuzes':
                 favorites_data = [{'number_fav_object': fav.number_fav_object, 'fav_vuz': fav.vuz_or_razdel, 'fav_name': fav.name_fav_object} for fav in favorites]
-                favorites_data = sorted(favorites_data, key=lambda x: (x['number_fav_object']))
             else:
                 favorites_data = [{'number_fav_object': fav.number_fav_object, 'fav_razdel': fav.vuz_or_razdel, 'fav_name': fav.name_fav_object} for fav in favorites]
-                favorites_data = sorted(favorites_data, key=lambda x: x['number_fav_object'])
+            favorites_data = sorted(favorites_data, key=lambda x: x['number_fav_object'])
         except UserProfile.DoesNotExist:
             favorites_data = []
+        finally:
             return JsonResponse({'favorites': favorites_data})
-        return JsonResponse({'favorites': favorites_data})
     else:
         return JsonResponse({'status': 'fail'})
     

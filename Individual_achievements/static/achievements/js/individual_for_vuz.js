@@ -5,34 +5,20 @@ let bd
 let arr
 
 
-// document.querySelectorAll('.searchInputContext').forEach(InputContext => {
-//   InputContext.addEventListener('input', function() {
-//     const InputContextValue = InputContext.value.toLowerCase()
+document.querySelectorAll('.searchInputContext').forEach(InputContext => {
+  InputContext.addEventListener('input', function() {
+    const InputContextValue = InputContext.value.toLowerCase()
 
-//     document.querySelectorAll(`.part${InputContext.id.replace('searchInput', '')}`).forEach(part => {
-//       const nameEvent = part.querySelector('h3 span').textContent.toLowerCase().slice(13)
-//       if (nameEvent.includes(InputContextValue)) {
-//         part.style.display = 'block'
-//       } else {
-//         part.style.display = 'none'
-//       }
-//     })
-//   })
-// })
-
-
-function getNameEvent(searchInputId) {
-  const InputContextValue = document.getElementById(`searchInput${searchInputId}`).value.toLowerCase()
-
-  document.querySelectorAll(`.part${searchInputId}`).forEach(part => {
-    const nameEvent = part.querySelector('h3 span').textContent.toLowerCase().slice(13)
-    if (nameEvent.includes(InputContextValue)) {
-      part.style.display = 'block'
-    } else {
-      part.style.display = 'none'
-    }
+    document.querySelectorAll(`.part${InputContext.id.replace('searchInput', '')}`).forEach(part => {
+      const nameEvent = part.querySelector('h3 span').textContent.toLowerCase().slice(13)
+      if (nameEvent.includes(InputContextValue)) {
+        part.style.display = 'block'
+      } else {
+        part.style.display = 'none'
+      }
+    })
   })
-}
+})
 
 
 $(document).ready(function(){
@@ -102,3 +88,17 @@ function closeDetails() {
   arr.toggleClass('end_position')
   btnHide.toggleClass('disp_none')
 }
+
+
+// function getNameEvent(searchInputId) {
+//   const InputContextValue = document.getElementById(`searchInput${searchInputId}`).value.toLowerCase()
+
+//   document.querySelectorAll(`.part${searchInputId}`).forEach(part => {
+//     const nameEvent = part.querySelector('h3 span').textContent.toLowerCase().slice(13)
+//     if (nameEvent.includes(InputContextValue)) {
+//       part.style.display = 'block'
+//     } else {
+//       part.style.display = 'none'
+//     }
+//   })
+// }
