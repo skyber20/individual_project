@@ -1,0 +1,12 @@
+{% for event in achieve_list %}
+<div>
+    <label for="{{ event }}" class="label-achieve">{{ event }}</label>
+    <input type="checkbox" class="input-achieve" name="{{ event }}" value="{{ event }}">
+    <select name="" id="" class="select-achieve">
+        <option value="member">Участник</option>
+        <option value="prizer">Призер</option>
+        <option value="winner">Победитель</option>
+        <option value="laureate">Лауреат</option>
+    </select>
+</div>
+{% endfor %}

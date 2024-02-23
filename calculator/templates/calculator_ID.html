@@ -13,18 +13,20 @@
     {% include 'common_html.html' %}
     <a id="telegram-calculator" target="_blank" href="https://t.me/search_universities_bot"><i class="fab fa-telegram"></i>Калькулятор в тг!</a>
     <div id="container">
+        {% csrf_token %}
         <div id="nav-post">
             <div id="categories">
-                <!-- категории -->
+                <div class="nav-item" onclick="getListAchieves('Олимпиады')">Олимпиады</div>
+                <div class="nav-item" onclick="getListAchieves('Спортивные')">Спортивные</div>
+                <div class="nav-item" onclick="getListAchieves('Другие')">Другие</div>
             </div>
         </div>
         <div id="content">
             <form id="achievements-form" method="post">
-                {% csrf_token %}
                 <div id="achievements">
-                    <!-- здесь будет список ИД в зависимости от категории -->
+                    <!-- elmw -->
                 </div>  
-                <button type="submit" class="buttons" id="calculate-btn"><span class="btn_text">посчитать</span></button>
+                <button type="submit" class="buttons" id="calculate-btn" style="display: none;"><span class="btn_text">посчитать</span></button>
             </form>
         </div>
     </div>
