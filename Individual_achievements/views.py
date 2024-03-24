@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.apps import apps
 from main_page.models import UserProfile
 
+translations = {'mipt': 'МФТИ', 'mgu': 'МГУ', 'mifi': 'МИФИ', 'baumanka': 'МГТУ им Н.Э. Баумана', 
+                'HighEconomicShool': 'Высшая школа экономики', 'FU': 'ФУ при правительстве РФ'}
+
 
 def individual_achievements_show(request):
-    translations = {'mipt': 'МФТИ', 'mgu': 'МГУ', 'mifi': 'МИФИ', 'baumanka': 'МГТУ им Н.Э. Баумана', 
-                    'HighEconomicShool': 'Высшая школа экономики', 'FU': 'ФУ при правительстве РФ'}
     sorted_table_names = sorted(translations, key=translations.get)
     vuzes_data = []
     cnt = 1

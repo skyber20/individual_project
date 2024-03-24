@@ -11,7 +11,6 @@
 </head>
 <body>
     {% include 'common_html.html' %}
-    <a id="telegram-calculator" target="_blank" href="https://t.me/search_universities_bot"><i class="fab fa-telegram"></i>Калькулятор в тг!</a>
     <div id="container">
         {% csrf_token %}
         <div id="nav-post">
@@ -22,14 +21,13 @@
             </div>
         </div>
         <div id="content">
-            <form id="achievements-form" method="post">
-                <div id="achievements">
-                    <!-- elmw -->
-                </div>  
-                <button type="submit" class="buttons" id="calculate-btn" style="display: none;"><span class="btn_text">посчитать</span></button>
-            </form>
+            <div id="achievements">
+                <!-- здесь будет список ИД в зависимости от категории -->
+            </div>  
         </div>
     </div>
+    <a id="telegram-calculator" target="_blank" href="https://t.me/search_universities_bot"><i class="fab fa-telegram"></i>Калькулятор в тг!</a>
+    <button id="calculate-btn" onclick="sendAchieves()"><span>посчитать</span></button>
     <script src="{% static 'calculator_id/js/calculator_id.js' %}"></script>
 </body>
 </html>

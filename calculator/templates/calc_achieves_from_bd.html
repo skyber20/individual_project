@@ -1,12 +1,15 @@
+<div style="display: none;" id="counter">{{ counter }}</div>
 {% for event in achieve_list %}
-<div>
-    <label for="{{ event }}" class="label-achieve">{{ event }}</label>
-    <input type="checkbox" class="input-achieve" name="{{ event }}" value="{{ event }}">
-    <select name="" id="" class="select-achieve">
-        <option value="member">Участник</option>
-        <option value="prizer">Призер</option>
-        <option value="winner">Победитель</option>
-        <option value="laureate">Лауреат</option>
+<div class="click-event">
+    <div class="select-event" onclick="selectAchieve('{{ razdel }}{{ forloop.counter }}')">
+        <input type="checkbox" class="input-achieve" id="input-achieve-{{ razdel }}{{ forloop.counter }}">
+        <label id="label-achieve-{{ razdel }}{{ forloop.counter }}" class="label-achieve">{{ event }}</label>
+    </div>
+    <select class="select-achieve" id="select-achieve-{{ razdel }}{{ forloop.counter }}" onchange="changeStatus('{{ razdel }}{{ forloop.counter }}', this)">
+        <option value="adding_points_uchastnik">Участник</option>
+        <option value="adding_points_prizer">Призер</option>
+        <option value="adding_points_pobeditel">Победитель</option>
+        <option value="adding_points_laureat">Лауреат</option>
     </select>
 </div>
 {% endfor %}

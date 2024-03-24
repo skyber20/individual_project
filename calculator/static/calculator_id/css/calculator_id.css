@@ -7,10 +7,10 @@
 }
 
 #telegram-calculator {
-  position: absolute;
+  position: fixed;
   text-decoration: none;
   color: white;
-  top: 17%;
+  bottom: 30px;
   right: 30px;
   padding: 18px 20px;
   background: #3498db;
@@ -63,18 +63,12 @@
 }
 
 #content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#achievements-form {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #achievements {
@@ -85,22 +79,39 @@
   margin-bottom: 10px;
 }
 
+.click-event{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 5px;
+}
+
+.click-event:hover {
+  background: #f1f1f129;
+}
+
+.select-event {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .label-achieve {
+  cursor: pointer;
   display: block;
   padding: 10px;
   transition: background 0.3s ease;
 }
 
-.label-achieve:hover {
-  background: #f1f1f129;
-}
-
 .input-achieve {
+  cursor: pointer;
   margin-right: 10px;
 }
 
-/* Стили для .select-achieve */
 .select-achieve {
+  display: none;
   margin-left: 10px;
   background: #fff;
   border: 1px solid #ddd;
@@ -118,6 +129,9 @@
   margin: 0 auto;
 }
 
-.btn_text {
-  font-size: 18px;
+#calculate-btn {
+  /* display: none; */
+  position: fixed;
+  right: 100px;
+  bottom: 50%;
 }
