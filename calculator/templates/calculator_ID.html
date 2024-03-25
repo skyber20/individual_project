@@ -13,21 +13,30 @@
     {% include 'common_html.html' %}
     <div id="container">
         {% csrf_token %}
-        <div id="nav-post">
-            <div id="categories">
-                <div class="nav-item" onclick="getListAchieves('Олимпиады')">Олимпиады</div>
-                <div class="nav-item" onclick="getListAchieves('Спортивные')">Спортивные</div>
-                <div class="nav-item" onclick="getListAchieves('Другие')">Другие</div>
+        <div id="choose-vuz">
+            <div class="h">
+                <h1>ВЫБЕРИТЕ ВУЗ</h1>
+            </div>
+            <div id="vuzes">
+                {% for eng_vuz, rus_vuz in vuzes %}
+                <button class="vuz-btn" id="{{ eng_vuz }}" onclick="chooseVuz('{{ rus_vuz }}', '{{ eng_vuz }}')">
+                    <span>{{rus_vuz}}</span>
+                </button>
+                {% endfor %}
             </div>
         </div>
-        <div id="content">
-            <div id="achievements">
-                <!-- здесь будет список ИД в зависимости от категории -->
-            </div>  
+        <div id="choose-achieves" style="display: none;">
+            <div class="h">
+                <h1>ДОБАВЬТЕ ВСЕ ДОСТИЖЕНИЯ</h1>
+                <h3 id="vuz-name-h3">ВУЗ:</h3>
+            </div>
+            <div class="content_bds" id="content_bds">
+                {% include 'achieves_from_vuz.html' %}
+            </div>
+            <button id="back-btn" onclick="backBtn()"><span>Назад</span></button>
         </div>
     </div>
     <a id="telegram-calculator" target="_blank" href="https://t.me/search_universities_bot"><i class="fab fa-telegram"></i>Калькулятор в тг!</a>
-    <button id="calculate-btn" onclick="sendAchieves()"><span>посчитать</span></button>
     <script src="{% static 'calculator_id/js/calculator_id.js' %}"></script>
 </body>
 </html>

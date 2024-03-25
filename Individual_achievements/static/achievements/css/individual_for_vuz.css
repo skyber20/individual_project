@@ -286,10 +286,6 @@
   outline: none;
 }
 
-.article_btns:hover {
-  transform: scale(1);
-}
-
 .arrs {
   transition: transform 0.55s ease;
 }
