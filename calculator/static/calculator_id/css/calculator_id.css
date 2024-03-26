@@ -37,7 +37,7 @@ h1 {
   margin: 0 0 60px;
 }
 
-#vuz-name-h3 {
+.vuz-name-h3 {
   margin-top: 10px;
   font-size: 22px;
   color: #95cc7f;
@@ -64,8 +64,37 @@ h1 {
 
 #back-btn {
   position: fixed;
-  bottom: 50px;
-  left: -15%;
+  bottom: 40px;
+  left: 10.5%;
+}
+
+#back-to-list {
+  position: fixed;
+  bottom: 40px;
+  left: 8%;
+}
+
+#calculate-btn {
+  position: fixed;
+  bottom: 50%;
+  left: 12.9%;
+  transform: translate(-50%);
+}
+
+#back-btn,
+#back-to-list,
+#calculate-btn {
+  padding: 15px;
+  background-color: #464646;
+  color: white;
+  border: 1px solid rgba(183, 183, 183, 0.434);
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.event {
+  margin-bottom: 30px;
 }
 
 .content_bds {
@@ -166,6 +195,10 @@ h1 {
   color: #333;
 }
 
+.part-of-data {
+  margin-bottom: 35px;
+}
+
 .part-of-data ul {
   padding: 0;
   list-style: none;
@@ -186,4 +219,64 @@ h1 {
 
 .content_bds {
   filter: hue-rotate(180deg);
+}
+
+.adding-achieve-to-calculate {
+  background-color: #d76c6c;
+  border: 1px solid #eb1818;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.899);
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.delete-achieve-from-calculate {
+  background-color: #35b2f0;
+  border: 1px solid #00aaff;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.899);
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.select-achieve {
+  margin-left: 10px;
+  font-size: 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.select-achieve:focus {
+  border-color: #3498db;
+}
+
+.choose-delete-status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-and-ball {
+  text-transform: uppercase;
+  color: #9f3f3f;
+}
+
+#itog {
+  margin: 30px 0;
+  color: red;
+  font-size: 32px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#itog::before {
+  content: "";
 }

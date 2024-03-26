@@ -1,0 +1,18 @@
+<p id="itog">ИТОГО: {{ summa }}</p>
+{% for item, status, ball in calculated_achieves %}
+    <div id="event{{item.id}}" class="event">
+        <div class="part-of-data">
+            <h1><span>№: {{item.id}}</span></h1>
+            <h2><span>Вид мероприятия: {{item.event|default:"нет информации"}}</span></h2>
+            <h3><span>Мероприятие: {{item.type_of_event|default:"нет информации"}}</span></h3>
+            <p>условия добавления баллов: {{item.conditions_for_adding|default:"нет информации"}}</p>
+            <ul>
+                <li>добавленные баллы участникам: {{item.adding_points_uchastnik|default:"нет информации"}}</li>
+                <li>добавленные баллы призёрам: {{item.adding_points_prizer|default:"нет информации"}}</li>
+                <li>добавленные баллы победителям: {{item.adding_points_pobeditel|default:"нет информации"}}</li>
+                <li>добавленные баллы лауреатам: {{item.adding_points_laureat|default:"нет информации"}}</li>
+            </ul>
+        </div>
+        <p class="status-and-ball">{{ status }}: {{ ball }}</span></p>
+    </div>
+{% endfor %}

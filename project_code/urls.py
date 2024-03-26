@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path
 from main_page.views import *
-from Individual_achievements.views import individual_achievements_show
-from calculator.views import calculator_view, get_achieves_from_vuz
-from individual_testing.views import show_testing_page, check_answers
-from example_ID.views import example_id
-from description_ID.views import show_description_ID, give_description
+from Individual_achievements.views import *
+from calculator.views import *
+from individual_testing.views import *
+from example_ID.views import *
+from description_ID.views import *
 from sign_login.views import *
 
 urlpatterns = [
@@ -24,6 +24,7 @@ urlpatterns = [
     path('individual_testing/', show_testing_page, name='individual_testing'),
     path('calculator/', calculator_view, name='calculator'),
     path('get_achieves_from_vuz/', get_achieves_from_vuz, name='get_achieves_from_vuz'),
+    path('calculate/', calculate, name='calculate'),
     path('compare_answers/', check_answers, name='compare_answers'),
     path('example_portfolio', example_id, name='example_portfolio'),
     path('register/', register_request, name='register'),
