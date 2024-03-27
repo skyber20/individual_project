@@ -280,3 +280,116 @@ h1 {
 #itog::before {
   content: "";
 }
+
+#searchBox {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #2f3640;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+#searchBox:hover > #searchInput {
+  padding: 0 10px;
+}
+
+#searchBox:hover > #searchButton {
+  background: white;
+  color: #a631ae;
+}
+
+#searchBox:focus-within > #searchInput {
+  padding: 0 10px;
+}
+
+#searchBox:focus-within > #searchButton {
+  background: white;
+  color: #a631ae;
+}
+
+#searchButton {
+  color: white;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in;
+}
+
+#searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  line-height: 40px;
+  transition: all 0.3s ease-in;
+}
+
+.searchBoxContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 320px;
+  height: 55px;
+  background-color: #F9F0DA;
+  border-radius: 25px;
+  border: 3px solid rgba(225, 61, 61, 0.451);
+  margin: 5px auto 40px;
+  overflow: hidden;
+}
+
+.searchBoxContent div {
+  outline: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#searchInputContext {
+  flex-grow: 1;
+  height: 100%;
+  font-size: 18px;
+  padding-left: 15px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.submitValueBtn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(225, 61, 61, 0.451);
+  border: none;
+  width: 58px;
+  height: calc(100% + 2px);
+  cursor: pointer;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitValueBtn::before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 18px;
+  color: #F9F0DA;
+}
+
+@media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+  }
+}

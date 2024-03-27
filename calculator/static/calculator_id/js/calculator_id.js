@@ -56,20 +56,20 @@ function getAchievesFromVuz(vuzNameEng) {
 }
 
 
-function searchButtons() {
-    const userInput = document.getElementById('searchInput').value.toLowerCase()
-    const buttons = document.querySelectorAll('.article_btns')
-    for (let i = 0; i < buttons.length; i++) {
-        const btn = buttons[i]
-        const text_btn = btn.textContent.toLowerCase()
-        const bd = document.getElementById(btn.id.replace("article_btn", "bd"))
-        if (text_btn.indexOf(userInput) !== -1) {
-            bd.style.display = 'block'
+const searchInputContext = document.getElementById('searchInputContext')
+
+searchInputContext.addEventListener('input', function() {
+    alert(1)
+    const InputContextValue = searchInputContext.value.toLowerCase()
+    document.querySelectorAll('.event').forEach(event => {
+        const nameEvent = event.querySelector('h3 span').textContent.toLowerCase().slice(13)
+        if (nameEvent.includes(InputContextValue)) {
+            event.style.display = 'block'
         } else {
-            bd.style.display = 'none'
+            event.style.display = 'none'
         }
-    }
-}
+    })
+})
 
 
 function command(eventId, nameCommand) {
